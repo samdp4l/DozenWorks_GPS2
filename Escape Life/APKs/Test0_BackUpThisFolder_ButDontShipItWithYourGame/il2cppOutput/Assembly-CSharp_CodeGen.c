@@ -1,0 +1,81 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+// 0x00000001 System.Void Crystal.SafeAreaDemo::Awake()
+extern void SafeAreaDemo_Awake_m70309B415D084CED95470CA1A35CFCC84BA318AE (void);
+// 0x00000002 System.Void Crystal.SafeAreaDemo::Update()
+extern void SafeAreaDemo_Update_m474130B29E65A63C19F1423A52ACCC3314D9EF3B (void);
+// 0x00000003 System.Void Crystal.SafeAreaDemo::ToggleSafeArea()
+extern void SafeAreaDemo_ToggleSafeArea_m39EC69B62D5CA8C4C1D71ED670E61D6AC220CDB9 (void);
+// 0x00000004 System.Void Crystal.SafeAreaDemo::.ctor()
+extern void SafeAreaDemo__ctor_m3297CAA9BC3353E63D3FFEBE5172095C9A132AA4 (void);
+// 0x00000005 System.Void Crystal.SafeArea::Awake()
+extern void SafeArea_Awake_mFAAD0518B04FA595839CA89E637D3B695F5E47B5 (void);
+// 0x00000006 System.Void Crystal.SafeArea::Update()
+extern void SafeArea_Update_mAC4051AFEC584503438092855D70BB4D175A12A4 (void);
+// 0x00000007 System.Void Crystal.SafeArea::Refresh()
+extern void SafeArea_Refresh_m2EB186CFFCAB2AB7E5B57A46A2A57D14493FD8EA (void);
+// 0x00000008 UnityEngine.Rect Crystal.SafeArea::GetSafeArea()
+extern void SafeArea_GetSafeArea_m4B6B53C8ED0A4B2F5DBC404E2F208E6A71411815 (void);
+// 0x00000009 System.Void Crystal.SafeArea::ApplySafeArea(UnityEngine.Rect)
+extern void SafeArea_ApplySafeArea_m19691250ABEE5AFFA7F793548BCCE402CCF38548 (void);
+// 0x0000000A System.Void Crystal.SafeArea::.ctor()
+extern void SafeArea__ctor_mC10940463499A1652DEC94CACFCB811ADA5CD6FF (void);
+static Il2CppMethodPointer s_methodPointers[10] = 
+{
+	SafeAreaDemo_Awake_m70309B415D084CED95470CA1A35CFCC84BA318AE,
+	SafeAreaDemo_Update_m474130B29E65A63C19F1423A52ACCC3314D9EF3B,
+	SafeAreaDemo_ToggleSafeArea_m39EC69B62D5CA8C4C1D71ED670E61D6AC220CDB9,
+	SafeAreaDemo__ctor_m3297CAA9BC3353E63D3FFEBE5172095C9A132AA4,
+	SafeArea_Awake_mFAAD0518B04FA595839CA89E637D3B695F5E47B5,
+	SafeArea_Update_mAC4051AFEC584503438092855D70BB4D175A12A4,
+	SafeArea_Refresh_m2EB186CFFCAB2AB7E5B57A46A2A57D14493FD8EA,
+	SafeArea_GetSafeArea_m4B6B53C8ED0A4B2F5DBC404E2F208E6A71411815,
+	SafeArea_ApplySafeArea_m19691250ABEE5AFFA7F793548BCCE402CCF38548,
+	SafeArea__ctor_mC10940463499A1652DEC94CACFCB811ADA5CD6FF,
+};
+static const int32_t s_InvokerIndices[10] = 
+{
+	4922,
+	4922,
+	4922,
+	4922,
+	4922,
+	4922,
+	4922,
+	4848,
+	3922,
+	4922,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
+const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
+{
+	"Assembly-CSharp.dll",
+	10,
+	s_methodPointers,
+	0,
+	NULL,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};
