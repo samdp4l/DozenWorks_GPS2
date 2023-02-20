@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 93
+  controlID: 16
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 94
+  controlID: 17
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 95
+  controlID: 18
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -408,13 +408,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Program&Dev Projects\Repositories\DozenWorks_GPS2\Escape
     Life
@@ -422,9 +422,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 43.80002}
-    m_SelectedIDs: 785b0000
-    m_LastClickedID: 23416
-    m_ExpandedIDs: 000000006a5b000000ca9a3b
+    m_SelectedIDs: 945b0000
+    m_LastClickedID: 23444
+    m_ExpandedIDs: 000000007c5b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -452,7 +452,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006a5b0000
+    m_ExpandedIDs: 000000007c5b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,7 +496,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -582,23 +582,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b8820000
-      m_LastClickedID: 33464
-      m_ExpandedIDs: 2ec0ffff7ec0ffff82c0ffff48c2ffff98c2ffff9ec2ffff88c6ffffdcc6ffffe2c6ffffe0ccffff30cdffff36cdffffbcceffff0ccfffff12cfffffc6cfffff1ad0ffff20d0ffffb2d3ffff02d4ffff08d4ffff2cd9ffff7cd9ffff82d9ffff76dcffffc6dcffffccdcffff5eddffff32e0ffff82e0ffff88e0ffff5ee1ffff74e4ffffc4e4ffffcce4ffffe8eaffff38ebffff40ebffffeaf2ffffe6f4ffff36f5ffff4ef8ffff92f9ffff32fbffffc25a0000d65a00000c5e0000205e0000445e00004e5e0000625e0000d6610000ea610000406200002c6500004065000026690000526900009c6d0000c86d0000ea6d0000d26f0000a4730000dc7800002e7b0000807d000066800000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d4f8ffff20f9ffffb0f9ffff32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Floor
-        m_OriginalName: Floor
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 31516
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.1083389, y: -0.20717785, z: 0.02309165, w: 0.9720157}
     speed: 2
-    m_Value: {x: 0.11708208, y: -0.20696084, z: 0.024955222, w: 0.9709976}
+    m_Value: {x: -0.1083389, y: 0.20717785, z: -0.02309165, w: -0.9720157}
   m_Size:
     m_Target: 3.327665
     speed: 2
