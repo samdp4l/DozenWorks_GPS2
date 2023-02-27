@@ -13,6 +13,7 @@ public class LightSwitch : MonoBehaviour
         dent.transform.localPosition = oldPos;
     }
 
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -34,4 +35,5 @@ public class LightSwitch : MonoBehaviour
         }
        
     }
+
 }
