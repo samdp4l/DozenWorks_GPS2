@@ -17,7 +17,7 @@ public class PickUpObject : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == "box")
+                if (hit.transform.tag == "PickUp")
                 {
                     Debug.Log("Touched");
                     //Color newColor = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
