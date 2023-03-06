@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/Sam.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+=======
+  - enabled: 0
+    path: Assets/Scenes/Main.unity
+    guid: a3b3edd1ef3d76748958c4e2bc4a6cd9
+  - enabled: 1
+    path: Assets/Scenes/Bill.unity
+    guid: c1104b00fe59939459981aae22e3ac11
+>>>>>>> Bill
   m_configObjects: {}
