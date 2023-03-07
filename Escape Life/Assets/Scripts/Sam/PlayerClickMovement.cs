@@ -10,7 +10,7 @@ public class PlayerClickMovement : MonoBehaviour
     private Camera cam;
     private Touch firstTouch;
     [SerializeField]
-    private float interactRange;
+    private float moveRange;
     [SerializeField]
     private Transform camTransform;
     [SerializeField]
@@ -33,7 +33,7 @@ public class PlayerClickMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !gameObject.GetComponent<PlayerInspect>().inspectMode)
         {
             firstTouch = Input.GetTouch(0);
 
@@ -42,7 +42,7 @@ public class PlayerClickMovement : MonoBehaviour
                 RaycastHit hit;
                 Ray ray = cam.ScreenPointToRay(firstTouch.position);
 
-                if (Physics.Raycast(ray, out hit, interactRange))
+                if (Physics.Raycast(ray, out hit, moveRange))
                 {
                     if (hit.transform.CompareTag("Floor"))
                     {
@@ -58,7 +58,7 @@ public class PlayerClickMovement : MonoBehaviour
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, interactRange))
+            if (Physics.Raycast(ray, out hit, moveRange))
             {
                 if (hit.transform.CompareTag("Floor"))
                 {
