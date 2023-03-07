@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ClosedContainer
-  - OpenedContainer
-  - NoteBook
+  - Terrain
+  - DetectRange
+  - Floor
   layers:
   - Default
   - TransparentFX
