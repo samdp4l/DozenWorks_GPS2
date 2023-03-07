@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerClickMovement : MonoBehaviour
 {
@@ -10,11 +13,22 @@ public class PlayerClickMovement : MonoBehaviour
     private float interactRange;
     [SerializeField]
     private Transform camTransform;
+    [SerializeField]
+    private float smoothTime;
+
+    private float hitPointX;
+    private float hitPointZ;
+
+    private float refVeloX = 0f;
+    private float refVeloZ = 0f;
 
     private void Start()
     {
         cam = Camera.main;
         camTransform = Camera.main.transform;
+
+        hitPointX = camTransform.position.x;
+        hitPointZ = camTransform.position.z;
     }
 
     private void Update()
@@ -32,10 +46,36 @@ public class PlayerClickMovement : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Floor"))
                     {
-                        camTransform.position = new Vector3(hit.point.x, camTransform.position.y, hit.point.z);
+                        hitPointX = hit.point.x;
+                        hitPointZ = hit.point.z;
                     }
                 }
             }
         }
+
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, interactRange))
+            {
+                if (hit.transform.CompareTag("Floor"))
+                {
+                    hitPointX = hit.point.x;
+                    hitPointZ = hit.point.z;
+                }
+            }
+        }
+
+        PlayerMove(hitPointX, hitPointZ);
+    }
+
+    private void PlayerMove(float hitX, float hitZ)
+    {
+        float newPosX = Mathf.SmoothDamp(camTransform.position.x, hitX, ref refVeloX, smoothTime);
+        float newPosZ = Mathf.SmoothDamp(camTransform.position.z, hitZ, ref refVeloZ, smoothTime);
+
+        camTransform.position = new Vector3(newPosX, camTransform.position.y, newPosZ);
     }
 }
