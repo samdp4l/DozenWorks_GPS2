@@ -3,22 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - DetectRange
-  - Terrain
-  - PickUp
-=======
-  - Terrain
-  - DetectRange
-  - Floor
->>>>>>> main
-=======
-  - Terrain
-  - DetectRange
-  - Floor
->>>>>>> d78858abc90782514a1eed08c81ec9d907dee135
+  tags: []
   layers:
   - Default
   - TransparentFX
