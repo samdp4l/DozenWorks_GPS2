@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Escape Life/Assets/Scenes/Hzx.unity.meta
 guid: 58b1ce49ef58fdb43be3933027443a1a
+========
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+>>>>>>>> 81276d4680c9f5d10e3bc3ec0d961be037162a50:Escape Life/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+=======
+<<<<<<< HEAD
+guid: a17fe7727b98968448a6fc914199de5b
+=======
+guid: 58b1ce49ef58fdb43be3933027443a1a
+>>>>>>> d983754881de785f994caa2ce0add99509d8e236
+>>>>>>> 81276d4680c9f5d10e3bc3ec0d961be037162a50
 DefaultImporter:
   externalObjects: {}
   userData: 
