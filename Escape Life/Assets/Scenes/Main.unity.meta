@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Escape Life/Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta
 guid: 0851605490a599b46b6ac5cb681d93ea
 ========
 guid: a3b3edd1ef3d76748958c4e2bc4a6cd9
 >>>>>>>> main:Escape Life/Assets/Scenes/Main.unity.meta
+=======
+<<<<<<<< HEAD:Escape Life/Assets/Scenes/Main.unity.meta
+guid: a3b3edd1ef3d76748958c4e2bc4a6cd9
+========
+guid: 0851605490a599b46b6ac5cb681d93ea
+>>>>>>>> azmyr:Escape Life/Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta
+>>>>>>> d78858abc90782514a1eed08c81ec9d907dee135
 DefaultImporter:
   externalObjects: {}
   userData: 

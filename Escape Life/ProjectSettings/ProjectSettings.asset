@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 23
-  productGUID: d3d0a12ef03d30545931462c07cd6acd
+  productGUID: f2e86392c6c450541ab5ede72aadea59
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -943,16 +943,22 @@ PlayerSettings:
       RecordedCallsFolder: False
       Contacts: False
 <<<<<<< HEAD
+<<<<<<< HEAD
       Proximity: False
       InternetClient: True
       CodeGeneration: False
       BackgroundMediaPlayback: False
 =======
+=======
+>>>>>>> d78858abc90782514a1eed08c81ec9d907dee135
       InternetClient: True
       CodeGeneration: False
       BackgroundMediaPlayback: False
       Proximity: False
+<<<<<<< HEAD
 >>>>>>> main
+=======
+>>>>>>> d78858abc90782514a1eed08c81ec9d907dee135
   metroTargetDeviceFamilies:
     Desktop: False
     Holographic: False
