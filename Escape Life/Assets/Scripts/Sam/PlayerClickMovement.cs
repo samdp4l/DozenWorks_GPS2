@@ -22,18 +22,21 @@ public class PlayerClickMovement : MonoBehaviour
     private float refVeloX = 0f;
     private float refVeloZ = 0f;
 
-    private void Start()
+    private void Awake()
     {
         cam = Camera.main;
         camTransform = Camera.main.transform;
+    }
 
+    private void Start()
+    {
         hitPointX = camTransform.position.x;
         hitPointZ = camTransform.position.z;
     }
 
     private void Update()
     {
-        if (Input.touchCount > 0 && !gameObject.GetComponent<PlayerInspect>().inspectMode)
+        if (Input.touchCount > 0 && gameObject.GetComponent<PlayerInspect>().inspectMode == false)
         {
             firstTouch = Input.GetTouch(0);
 
@@ -53,20 +56,20 @@ public class PlayerClickMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0))
-        {
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        //if (Input.GetMouseButton(0))
+        //{
+        //    RaycastHit hit;
+        //    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, moveRange))
-            {
-                if (hit.transform.CompareTag("Floor"))
-                {
-                    hitPointX = hit.point.x;
-                    hitPointZ = hit.point.z;
-                }
-            }
-        }
+        //    if (Physics.Raycast(ray, out hit, moveRange))
+        //    {
+        //        if (hit.transform.CompareTag("Floor"))
+        //        {
+        //            hitPointX = hit.point.x;
+        //            hitPointZ = hit.point.z;
+        //        }
+        //    }
+        //}
 
         PlayerMove(hitPointX, hitPointZ);
     }
