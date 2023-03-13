@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - PickUp
   - LightSwitch
+  - Lock
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,10 @@ public class PlayerInspect : MonoBehaviour
     private float inspectDistance;
     [SerializeField]
     private GameObject inspectButton;
+    [SerializeField]
+    private GameObject lockObject;
+    [SerializeField]
+    private GameObject lockCanvas;
 
     private Vector3 oriPos;
     private Quaternion oriRot;
@@ -40,6 +44,8 @@ public class PlayerInspect : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, interactRange))
                 {
+                    Debug.Log(hit.transform.tag);
+
                     if (hit.transform.CompareTag("PickUp"))
                     {
                         inspectMode = true;
@@ -49,7 +55,21 @@ public class PlayerInspect : MonoBehaviour
                         oriRot = hit.transform.rotation;
 
                         hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-                        hit.transform.rotation = new Quaternion(0.0f, camTransform.rotation.y, 0.0f, camTransform.rotation.w);
+                        hit.transform.rotation = camTransform.rotation;
+                    }
+
+                    if (hit.transform.CompareTag("Lock"))
+                    {
+                        inspectMode = true;
+                        inspectButton.SetActive(true);
+
+                        lockCanvas.GetComponent<LockBehaviour>().toggleCanvas();
+
+                        oriPos = lockObject.transform.position;
+                        oriRot = lockObject.transform.rotation;
+
+                        lockObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
+                        lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, 180f, 0f);
                     }
                 }
             }
@@ -63,8 +83,19 @@ public class PlayerInspect : MonoBehaviour
             inspectMode = false;
             inspectButton.SetActive(false);
 
-            hit.transform.position = oriPos;
-            hit.transform.rotation = oriRot;
+            if (hit.transform.CompareTag("PickUp"))
+            {
+                hit.transform.position = oriPos;
+                hit.transform.rotation = oriRot;
+            }
+
+            if (hit.transform.CompareTag("Lock"))
+            {
+                lockObject.transform.position = oriPos;
+                lockObject.transform.rotation = oriRot;
+
+                lockCanvas.GetComponent<LockBehaviour>().toggleCanvas();
+            }
         }
     }
 }

@@ -60,8 +60,7 @@ public class PlayerClickMovement : MonoBehaviour
         }
 
         PlayerMove(targetX, targetZ);
-
-        Debug.Log(collided);
+        //Debug.Log(collided);
     }
 
     private void OnCollisionEnter(Collision other)
