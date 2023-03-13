@@ -16,22 +16,23 @@ public class PlayerClickMovement : MonoBehaviour
     [SerializeField]
     private float smoothTime;
 
-    private float hitPointX;
-    private float hitPointZ;
+    private float targetX;
+    private float targetZ;
 
     private float refVeloX = 0f;
     private float refVeloZ = 0f;
 
+    private bool collided = false;
+
     private void Awake()
     {
         cam = Camera.main;
-        camTransform = Camera.main.transform;
     }
 
     private void Start()
     {
-        hitPointX = camTransform.position.x;
-        hitPointZ = camTransform.position.z;
+        targetX = transform.position.x;
+        targetZ = transform.position.z;
     }
 
     private void Update()
@@ -49,36 +50,33 @@ public class PlayerClickMovement : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Floor"))
                     {
-                        hitPointX = hit.point.x;
-                        hitPointZ = hit.point.z;
+                        collided = false;
+
+                        targetX = hit.point.x;
+                        targetZ = hit.point.z;
                     }
                 }
             }
         }
 
-        //if (Input.GetMouseButton(0))
-        //{
-        //    RaycastHit hit;
-        //    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        PlayerMove(targetX, targetZ);
 
-        //    if (Physics.Raycast(ray, out hit, moveRange))
-        //    {
-        //        if (hit.transform.CompareTag("Floor"))
-        //        {
-        //            hitPointX = hit.point.x;
-        //            hitPointZ = hit.point.z;
-        //        }
-        //    }
-        //}
+        Debug.Log(collided);
+    }
 
-        PlayerMove(hitPointX, hitPointZ);
+    private void OnCollisionEnter(Collision other)
+    {
+        collided = true;
     }
 
     private void PlayerMove(float hitX, float hitZ)
     {
-        float newPosX = Mathf.SmoothDamp(camTransform.position.x, hitX, ref refVeloX, smoothTime);
-        float newPosZ = Mathf.SmoothDamp(camTransform.position.z, hitZ, ref refVeloZ, smoothTime);
+        if (!collided)
+        {
+            float newPosX = Mathf.SmoothDamp(transform.position.x, hitX, ref refVeloX, smoothTime);
+            float newPosZ = Mathf.SmoothDamp(transform.position.z, hitZ, ref refVeloZ, smoothTime);
 
-        camTransform.position = new Vector3(newPosX, camTransform.position.y, newPosZ);
+            transform.position = new Vector3(newPosX, transform.position.y, newPosZ);
+        }
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - Terrain
   - DetectRange
   - Floor
+  - PickUp
+  - LightSwitch
   layers:
   - Default
   - TransparentFX
