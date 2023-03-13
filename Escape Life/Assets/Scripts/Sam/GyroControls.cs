@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GyroControls : MonoBehaviour
@@ -10,7 +11,7 @@ public class GyroControls : MonoBehaviour
     [SerializeField]
     private Transform player;
     private GameObject cameraContainer;
-    //private Quaternion rot;
+    private Quaternion rot;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class GyroControls : MonoBehaviour
             gyro.enabled = true;
 
             cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
-            //rot = new Quaternion(0, 0, 1, 0);
+            rot = new Quaternion(0, 0, 1, 0);
 
             return true;
         }
@@ -41,8 +42,10 @@ public class GyroControls : MonoBehaviour
     {
         if (gyroEnabled)
         {
-            transform.localRotation = gyro.attitude; //* rot;
+            transform.rotation = gyro.attitude * rot;
         }
+
+        //player.rotation = gyro.attitude * rot;
 
         transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
     }
