@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Escape Life/Assets/Material.meta
 guid: 97f833b9c0753f74fb1b6bbab5219d46
+=======
+<<<<<<<< HEAD:Escape Life/Assets/Hzx Scripts.meta
+guid: c199a2555bc07db419a0a7282db00143
+========
+guid: 9e4b430d465a25c428f3fdc01d6943d9
+>>>>>>>> 81276d4680c9f5d10e3bc3ec0d961be037162a50:Escape Life/Assets/Hzx Scripts/1234.meta
+>>>>>>> Hzx:Escape Life/Assets/Hzx Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
