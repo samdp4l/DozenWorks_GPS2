@@ -4,28 +4,42 @@ using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
 {
-    public GameObject cube;
     public GameObject keyGone;
-    public GameObject KeyImage;
-   
+    public GameObject keyImage;
+    public string pickupTag = "PickUp";
+    public bool isPickedUp { get; private set; }
+
+    public void ObjectPickedUp()
+    {
+        isPickedUp = true;
+        keyGone.SetActive(false);
+        keyImage.SetActive(true);
+    }
+
     void Update()
     {
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        for (int i = 0; i < Input.touchCount; i++)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Input.touches[i].phase == TouchPhase.Began)
             {
-                if (hit.transform.tag == "PickUp")
+                Ray ray = Camera.main.ScreenPointToRay(Input.touches[i].position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag(pickupTag))
                 {
-                    Debug.Log("Touched");
-                    //Color newColor = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-                    //hit.collider.GetComponent<MeshRenderer>().material.color = newColor;
-                    keyGone.SetActive(false);
-                    KeyImage.SetActive(true);
+                    PickUpObject pickupObject = hit.transform.GetComponent<PickUpObject>();
+                    if (pickupObject != null && !pickupObject.isPickedUp)
+                    {
+                        pickupObject.isPickedUp = true;
+                        pickupObject.keyGone.SetActive(false);
+                        pickupObject.keyImage.SetActive(true);
+                        pickupObject.ObjectPickedUp();
+                    }
                 }
             }
-        }   
+        }
+
+
     }
 }
+
