@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags:
-  - Terrain
-  - DetectRange
-  - Floor
-  - PickUp
-  - LightSwitch
-  - Lock
-=======
   tags: []
->>>>>>> main
   layers:
   - Default
   - TransparentFX
