@@ -23,6 +23,7 @@ public class LockContro : MonoBehaviour
     {
         switch(wheelName)
         {
+<<<<<<< HEAD
             case "Cylinder001":
                 result[0] = number;
                 break;
@@ -30,6 +31,18 @@ public class LockContro : MonoBehaviour
                 result[1] = number;
                 break;
                      case "Cylinder003":
+=======
+
+            case "Cylinder002":
+                result[0] = number;
+                break;
+            case "Cylinder005":
+                result[1] = number;
+                break;
+                     case "Cylinder004":
+
+           
+>>>>>>> azmyr
                 result[2] = number;
                 break;
                
