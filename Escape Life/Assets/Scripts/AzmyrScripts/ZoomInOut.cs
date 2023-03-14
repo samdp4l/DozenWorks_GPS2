@@ -6,7 +6,7 @@ public class ZoomInOut : MonoBehaviour
 {
     public float zoomSpeed = 0.1f;
     public float minZoomDistance = 1.0f;
-    public float maxZoomDistance = 10.0f;
+    public float maxZoomDistance = 2.0f;
 
     private float _lastTouchDistance;
 

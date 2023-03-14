@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
-    private float _rotationSpeed = 50.0f;
-    private Vector2 _lastTouchPosition;
+    public float rotationSpeed = 20.0f;
+    private Vector2 lastTouchPosition;
 
     void Update()
     {
@@ -15,18 +15,18 @@ public class RotateObject : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                _lastTouchPosition = touch.position;
+                lastTouchPosition = touch.position;
             }
             else if (touch.phase == TouchPhase.Moved)
             {
-                Vector2 delta = touch.position - _lastTouchPosition;
+                Vector2 delta = touch.position - lastTouchPosition;
 
-                float rotationX = delta.y * _rotationSpeed * Time.deltaTime;
-                float rotationY = -delta.x * _rotationSpeed * Time.deltaTime;
+                float rotationX = delta.y * rotationSpeed * Time.deltaTime;
+                float rotationY = -delta.x * rotationSpeed * Time.deltaTime;
 
                 transform.Rotate(new Vector3(rotationX, rotationY, 0));
 
-                _lastTouchPosition = touch.position;
+                lastTouchPosition = touch.position;
             }
         }
     }
