@@ -33,10 +33,16 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Console
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
 >>>>>>> Bill
+=======
+  m_Title: Project
+  m_RootView: {fileID: 6}
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> azmyr
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -45,13 +51,43 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
+=======
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 9}
+  - {fileID: 3}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 1920
+    height: 947
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 17
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+>>>>>>> azmyr
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 939
     y: 0
     width: 592
@@ -59,11 +95,148 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
+=======
+    x: 1466
+    y: 0
+    width: 454
+    height: 947
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 363
+    height: 561
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
+>>>>>>> azmyr
   m_Panes:
   - {fileID: 19}
   m_Selected: 0
   m_LastSelected: 0
+<<<<<<< HEAD
 --- !u!114 &3
+=======
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ProjectBrowser
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 561
+    width: 1466
+    height: 386
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 7}
+  - {fileID: 2}
+  - {fileID: 8}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 997
+  m_MinSize: {x: 875, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_UseTopView: 1
+  m_TopViewHeight: 30
+  m_UseBottomView: 1
+  m_BottomViewHeight: 20
+--- !u!114 &7
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 30
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+  m_LastLoadedLayoutName: 
+--- !u!114 &8
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12042, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 977
+    width: 1920
+    height: 20
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+--- !u!114 &9
+>>>>>>> azmyr
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,6 +332,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 505
     height: 811
   m_MinSize: {x: 202, y: 221}
@@ -252,6 +426,15 @@ MonoBehaviour:
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &7
+=======
+    width: 1466
+    height: 947
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 22
+--- !u!114 &10
+>>>>>>> azmyr
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -451,6 +634,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1531
     height: 573
   m_MinSize: {x: 300, y: 100}
@@ -458,6 +642,15 @@ MonoBehaviour:
   vertical: 0
   controlID: 57
 --- !u!114 &12
+=======
+    width: 1466
+    height: 561
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 23
+--- !u!114 &11
+>>>>>>> azmyr
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,14 +661,19 @@ MonoBehaviour:
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: 
 =======
   m_Name: SceneView
 >>>>>>> Bill
+=======
+  m_Name: SimulatorWindow
+>>>>>>> azmyr
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     x: 505
@@ -494,10 +692,19 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
 >>>>>>> Huzhixian
+=======
+    x: 363
+    y: 0
+    width: 1103
+    height: 561
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 12}
+>>>>>>> azmyr
   m_Panes:
   - {fileID: 16}
-  - {fileID: 17}
   - {fileID: 12}
+<<<<<<< HEAD
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &12
@@ -515,6 +722,70 @@ MonoBehaviour:
   - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 2
+=======
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13974, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Simulator
+    m_Image: {fileID: 8720083202187608617, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 363
+    y: 73
+    width: 1101
+    height: 540
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SerializedViewNames:
+  - UnityEditor.GameView
+  m_SerializedViewValues:
+  - C:\Users\User\Documents\GitHub\DozenWorks_GPS2\Escape Life\Library\PlayModeViewStates\a1ee344576f4258479b6c5dad00d7304
+  m_PlayModeViewName: Device Simulator
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
+  m_TargetSize: {x: 1125, y: 2436}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 2
+  m_UseMipMap: 0
+  m_SimulatorState:
+    controlPanelVisible: 0
+    controlPanelWidth: 0
+    controlPanelFoldoutKeys:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    controlPanelFoldoutValues: 00
+    pluginNames:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    pluginStates:
+    - '{}'
+    scale: 20
+    fitToScreenEnabled: 1
+    rotationDegree: 0
+    highlightSafeAreaEnabled: 0
+    friendlyName: Apple iPhone X
+    networkReachability: 1
+    systemLanguage: 10
+>>>>>>> azmyr
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -523,6 +794,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f817a38900380be47942905e17e7d39b, type: 3}
   m_Name: 
@@ -599,6 +871,8 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+=======
+>>>>>>> azmyr
   m_EditorHideFlags: 1
   m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -621,6 +895,7 @@ MonoBehaviour:
     x: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 905
     width: 2039
     height: 509
@@ -633,6 +908,11 @@ MonoBehaviour:
     width: 1530
     height: 353
 >>>>>>> Bill
+=======
+    y: 634
+    width: 1465
+    height: 365
+>>>>>>> azmyr
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -650,18 +930,23 @@ MonoBehaviour:
     m_SearchArea: 0
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets
 <<<<<<< HEAD
 =======
 =======
     - Assets/Bill's Scene
 >>>>>>> Bill
+=======
+    - Assets/Scripts/AzmyrScripts
+>>>>>>> azmyr
     m_Globs: []
     m_OriginalText: 
 >>>>>>> Huzhixian
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
 <<<<<<< HEAD
   - Assets
   m_LastFoldersGridSize: -1
@@ -676,10 +961,16 @@ MonoBehaviour:
 =======
   m_LastProjectPath: C:\Users\HuZhiXian\Documents\GitHub\GPS1\DozenWorks_GPS2\Escape
     Life
+=======
+  - Assets/Scripts/AzmyrScripts
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\User\Documents\GitHub\DozenWorks_GPS2\Escape Life
+>>>>>>> azmyr
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 08580000
     m_LastClickedID: 22536
     m_ExpandedIDs: 000000000858000000ca9a3bffffff7f
@@ -696,6 +987,11 @@ MonoBehaviour:
     m_LastClickedID: 26418
     m_ExpandedIDs: 000000002e670000306700003267000000ca9a3b
 >>>>>>> Bill
+=======
+    m_SelectedIDs: 3a590000
+    m_LastClickedID: 22842
+    m_ExpandedIDs: 00000000c2580000c4580000c6580000c8580000ca580000cc5800003659000000ca9a3b
+>>>>>>> azmyr
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -731,6 +1027,7 @@ MonoBehaviour:
     m_LastClickedID: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000b023000000ca9a3bffffff7f
 =======
     m_ExpandedIDs: 0000000008580000
@@ -738,6 +1035,9 @@ MonoBehaviour:
 =======
     m_ExpandedIDs: 000000002e6700003067000032670000
 >>>>>>> Bill
+=======
+    m_ExpandedIDs: 00000000c2580000c4580000c6580000c8580000ca580000cc580000
+>>>>>>> azmyr
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -789,7 +1089,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 6}
+=======
+      m_ClientGUIView: {fileID: 5}
+>>>>>>> azmyr
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -800,7 +1104,12 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_DirectoriesAreaWidth: 115
+=======
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 207
+>>>>>>> azmyr
 --- !u!114 &14
 =======
   m_SkipHiddenPackages: 0
@@ -834,6 +1143,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 2043
     y: 94
     width: 517
@@ -847,8 +1157,11 @@ MonoBehaviour:
     height: 701.8
 =======
     x: 1531
+=======
+    x: 1466
+>>>>>>> azmyr
     y: 73
-    width: 388
+    width: 453
     height: 926
 >>>>>>> Bill
   m_ViewDataDictionary: {fileID: 0}
@@ -862,6 +1175,15 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
+<<<<<<< HEAD
+=======
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
+  m_GlobalObjectId: 
+  m_InspectorMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+>>>>>>> azmyr
   m_PreviewWindow: {fileID: 0}
 --- !u!114 &17
 MonoBehaviour:
@@ -890,6 +1212,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     y: 94
@@ -937,6 +1260,11 @@ MonoBehaviour:
     width: 266
     height: 552
 >>>>>>> Bill
+=======
+    y: 73
+    width: 362
+    height: 540
+>>>>>>> azmyr
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -944,15 +1272,18 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: f4faffff
 =======
       m_SelectedIDs: 60660000
       m_LastClickedID: 26208
       m_ExpandedIDs: 30fbffff30660000
 >>>>>>> Bill
+=======
+      m_ExpandedIDs: 32fbffff5a58000064580000
+>>>>>>> azmyr
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -968,16 +1299,24 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
+<<<<<<< HEAD
         m_ClientGUIView: {fileID: 5}
+=======
+        m_ClientGUIView: {fileID: 4}
+>>>>>>> azmyr
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
     m_LockTracker:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
+<<<<<<< HEAD
   m_WindowGUID: 1a9770e722125ce4a8faf8c9f680cde4
 <<<<<<< HEAD
 >>>>>>> Huzhixian
+=======
+  m_WindowGUID: 4c969a2b90040154d917609493e03593
+>>>>>>> azmyr
 --- !u!114 &16
 =======
 --- !u!114 &18
@@ -1008,6 +1347,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 507
     y: 94
     width: 1532
@@ -1017,6 +1357,12 @@ MonoBehaviour:
     y: 73
     width: 670
     height: 552
+=======
+    x: 363
+    y: 73
+    width: 1101
+    height: 540
+>>>>>>> azmyr
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1241,7 +1587,7 @@ MonoBehaviour:
       id: Scene View/Tilemap Palette Helper
       index: 12
       layout: 4
-  m_WindowGUID: 2e490c23ea525ba4aaf6116a4332432e
+  m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
@@ -1252,9 +1598,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -1.4258118, y: 1.6094009, z: 3.2680511}
     speed: 2
     m_Value: {x: -1.4258118, y: 1.6094009, z: 3.2680511}
+=======
+    m_Target: {x: -0.31496945, y: 0.14377242, z: 0.008797536}
+    speed: 2
+    m_Value: {x: -0.31496945, y: 0.14377242, z: 0.008797536}
+>>>>>>> azmyr
   m_RenderMode: 0
   m_SceneViewState:
     showFog: 1
@@ -1264,6 +1616,7 @@ MonoBehaviour:
     showImageEffects: 1
   grid:
     xGrid:
+<<<<<<< HEAD
       m_Target: 0
       speed: 2
       m_Value: 0
@@ -1273,6 +1626,24 @@ MonoBehaviour:
       speed: 2
       m_Value: 1
 =======
+=======
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 0, y: 0}
+    yGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    zGrid:
+>>>>>>> azmyr
       m_Fade:
         m_Target: 1
         speed: 2
@@ -1280,6 +1651,7 @@ MonoBehaviour:
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
+<<<<<<< HEAD
 >>>>>>> Bill
     zGrid:
       m_Target: 0
@@ -1287,22 +1659,54 @@ MonoBehaviour:
       m_Value: 0
   m_Rotation:
     m_Target: {x: 0, y: -0.7071068, z: -0, w: 0.7071068}
+=======
+    m_ShowGrid: 1
+    m_GridAxis: 1
+    m_gridOpacity: 0.5
+  m_Rotation:
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
+>>>>>>> azmyr
     speed: 2
     m_Value: {x: -0.000000008496541, y: -0.70710653, z: -0.000000004176828, w: 0.70710725}
   m_Size:
+<<<<<<< HEAD
     m_Target: 5.387472
     speed: 2
     m_Value: 5.641332
+=======
+    m_Target: 9.12025
+    speed: 2
+    m_Value: 9.12025
+>>>>>>> azmyr
   m_Ortho:
     m_Target: 0
     speed: 2
+<<<<<<< HEAD
     m_Value: 0
   m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
+=======
+    m_Value: 1
+  m_CameraSettings:
+    m_Speed: 1
+    m_SpeedNormalized: 0.5
+    m_SpeedMin: 0.001
+    m_SpeedMax: 2
+    m_EasingEnabled: 1
+    m_EasingDuration: 0.4
+    m_AccelerationEnabled: 1
+    m_FieldOfViewHorizontalOrVertical: 60
+    m_NearClip: 0.03
+    m_FarClip: 10000
+    m_DynamicClip: 1
+    m_OcclusionCulling: 0
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+>>>>>>> azmyr
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
+<<<<<<< HEAD
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1483,6 +1887,9 @@ MonoBehaviour:
   m_RenderTexture: {fileID: 0}
 --- !u!114 &20
 >>>>>>> Bill
+=======
+--- !u!114 &17
+>>>>>>> azmyr
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -1509,6 +1916,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 8
     y: 718
     width: 1366
@@ -1518,8 +1926,17 @@ MonoBehaviour:
     y: 646
     width: 1530
     height: 353
+=======
+    x: 0
+    y: 634
+    width: 1465
+    height: 365
+>>>>>>> azmyr
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+<<<<<<< HEAD
 >>>>>>> Bill
+=======
+>>>>>>> azmyr
