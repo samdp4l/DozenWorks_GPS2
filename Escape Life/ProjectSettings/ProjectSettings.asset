@@ -4,11 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 23
-  productGUID: 5179dac8f91421f49beaa1244f2c63fa
+  productGUID: be600c11da823c24ea3660707454356a
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -47,7 +47,7 @@ PlayerSettings:
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
-  m_ActiveColorSpace: 1
+  m_ActiveColorSpace: 0
   m_MTRendering: 1
   mipStripping: 0
   numberOfMipsStripped: 0
@@ -642,7 +642,7 @@ PlayerSettings:
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
   enableRoslynAnalyzers: 1
-  selectedPlatform: 0
+  selectedPlatform: 2
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 1
@@ -668,59 +668,6 @@ PlayerSettings:
   metroSupportStreamingInstall: 0
   metroLastRequiredScene: 0
   metroDefaultTileSize: 1
-<<<<<<< HEAD
-  metroTileForegroundText: 1
-  metroTileBackgroundColor: {r: 0.4117647, g: 0.7490196, b: 0.2901961, a: 1}
-  metroSplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  metroSplashScreenUseBackgroundColor: 1
-  platformCapabilities:
-    WindowsStoreApps:
-      OfflineMapsManagement: False
-      HumanInterfaceDevice: False
-      Location: False
-      Chat: False
-      Bluetooth: False
-      AllJoyn: False
-      MusicLibrary: False
-      LowLevelDevices: False
-      PrivateNetworkClientServer: False
-      InternetClientServer: False
-      VideosLibrary: False
-      Objects3D: False
-      InternetClient: True
-      RemoteSystem: False
-      BlockedChatMessages: False
-      PhoneCall: False
-      UserDataTasks: False
-      Appointments: False
-      SystemManagement: False
-      SpatialPerception: False
-      Microphone: False
-      SharedUserCertificates: False
-      InputInjectionBrokered: False
-      PicturesLibrary: False
-      RemovableStorage: False
-      WebCam: True
-      VoipCall: False
-      UserAccountInformation: False
-      UserNotificationListener: False
-      PhoneCallHistoryPublic: False
-      PointOfService: False
-      RecordedCallsFolder: False
-      Contacts: False
-      Proximity: False
-      CodeGeneration: False
-      BackgroundMediaPlayback: False
-      EnterpriseAuthentication: False
-  metroTargetDeviceFamilies:
-    Desktop: False
-    Holographic: False
-    IoT: False
-    IoTHeadless: False
-    Mobile: False
-    Team: False
-    Xbox: False
-=======
   metroTileForegroundText: 2
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
@@ -728,7 +675,6 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
->>>>>>> azmyr
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 
