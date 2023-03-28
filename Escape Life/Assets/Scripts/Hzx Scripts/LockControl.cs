@@ -27,7 +27,7 @@ public class LockControl : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isOpened);
+        //Debug.Log(isOpened);
     }
 
     public void CheckResults(/*string wheelName, int number*/)
