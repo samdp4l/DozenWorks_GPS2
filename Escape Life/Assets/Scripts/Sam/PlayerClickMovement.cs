@@ -37,7 +37,7 @@ public class PlayerClickMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0 && gameObject.GetComponent<PlayerInteract>().inspectMode == false)
+        if (Input.touchCount > 0 && !gameObject.GetComponent<PlayerInteract>().inspectMode)
         {
             firstTouch = Input.GetTouch(0);
 

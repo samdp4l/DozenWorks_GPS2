@@ -12,6 +12,8 @@ public class PlayerInteract : MonoBehaviour
     private float interactRange;
     [SerializeField]
     private float inspectDistance;
+    //[SerializeField]
+    //private Vector3 inspectOffset;
     [SerializeField]
     private GameObject inspectButton;
     private GameObject lockObject;
@@ -45,7 +47,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     //Debug.Log(hit.transform.tag);
 
-                    if (hit.transform.CompareTag("PickUp"))
+                    if (hit.transform.CompareTag("Inspect"))
                     {
                         InspectObject();
                         //inspectMode = true;
@@ -82,7 +84,7 @@ public class PlayerInteract : MonoBehaviour
                         //lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, lockObject.GetComponent<LockControl>().rotationOffset, 0f);
                     }
 
-                    if (hit.transform.CompareTag("Drawer"))
+                    if (hit.transform.CompareTag("Drawer") && !inspectMode)
                     {
                         hit.transform.gameObject.GetComponent<DrawerBehaviour>().ToggleDrawer();
                     }
@@ -92,6 +94,20 @@ public class PlayerInteract : MonoBehaviour
     }
 
     private void InspectObject()
+    {
+        hit.transform.gameObject.AddComponent<Inspectable>();
+
+        inspectMode = true;
+        inspectButton.SetActive(true);
+
+        oriPos = hit.transform.position;
+        oriRot = hit.transform.rotation;
+
+        hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        hit.transform.rotation.SetLookRotation(camTransform.position);
+    }
+
+    private void InspectLock()
     {
         lockObject = hit.transform.gameObject;
 
@@ -112,19 +128,7 @@ public class PlayerInteract : MonoBehaviour
 
         lockObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
         lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, lockObject.GetComponent<LockControl>().rotationOffset, 0f);
-    }
-
-    private void InspectLock()
-    {
-        inspectMode = true;
-        inspectButton.SetActive(true);
-
-        oriPos = hit.transform.position;
-        oriRot = hit.transform.rotation;
-
-        hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-        hit.transform.rotation = camTransform.rotation;
-    }    
+    }   
 
     public void CancelInspect()
     {
@@ -133,8 +137,10 @@ public class PlayerInteract : MonoBehaviour
             inspectMode = false;
             inspectButton.SetActive(false);
 
-            if (hit.transform.CompareTag("PickUp"))
+            if (hit.transform.CompareTag("Inspect"))
             {
+                Destroy(hit.transform.gameObject.GetComponent<Inspectable>());
+
                 hit.transform.position = oriPos;
                 hit.transform.rotation = oriRot;
             }

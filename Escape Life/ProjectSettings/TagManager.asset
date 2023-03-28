@@ -9,6 +9,7 @@ TagManager:
   - Lock
   - PickUp
   - Drawer
+  - Inspect
   layers:
   - Default
   - TransparentFX
