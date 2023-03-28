@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 356e376d97350ac4492b3966a74e6102
+guid: 9e1d44548df456b4684e8bbcaccabacc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #6
+    second: {fileID: 2100000, guid: 0389d4a4add6b9d40ae59fa3fabee12d, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: drawer key
+    second: {fileID: 2800000, guid: f8eac371120f7ea49b103b8031353af6, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
