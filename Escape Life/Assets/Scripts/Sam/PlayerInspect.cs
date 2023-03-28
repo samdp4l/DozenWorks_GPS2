@@ -14,10 +14,9 @@ public class PlayerInspect : MonoBehaviour
     private float inspectDistance;
     [SerializeField]
     private GameObject inspectButton;
-    [SerializeField]
     private GameObject lockObject;
     [SerializeField]
-    private GameObject lockCanvas;
+    private LockCanvasBehaviour lockCanvas;
 
     private Vector3 oriPos;
     private Quaternion oriRot;
@@ -44,7 +43,7 @@ public class PlayerInspect : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, interactRange))
                 {
-                    Debug.Log(hit.transform.tag);
+                    //Debug.Log(hit.transform.tag);
 
                     if (hit.transform.CompareTag("PickUp"))
                     {
@@ -60,16 +59,25 @@ public class PlayerInspect : MonoBehaviour
 
                     if (hit.transform.CompareTag("Lock"))
                     {
+                        lockObject = hit.transform.gameObject;
+
                         inspectMode = true;
                         inspectButton.SetActive(true);
 
-                        lockCanvas.GetComponent<LockBehaviour>().toggleCanvas();
+                        lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
+                        lockObject.GetComponent<LockControl>().AttachButton();
+
+                        for (int i = 0; i < lockObject.GetComponent<LockControl>().inputCount; i++)
+                        {
+                            lockCanvas.upButtons[i].onClick.AddListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
+                            lockCanvas.downButtons[i].onClick.AddListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
+                        }
 
                         oriPos = lockObject.transform.position;
                         oriRot = lockObject.transform.rotation;
 
                         lockObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
-                        lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, 180f, 0f);
+                        lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, lockObject.GetComponent<LockControl>().rotationOffset, 0f);
                     }
                 }
             }
@@ -94,7 +102,15 @@ public class PlayerInspect : MonoBehaviour
                 lockObject.transform.position = oriPos;
                 lockObject.transform.rotation = oriRot;
 
-                lockCanvas.GetComponent<LockBehaviour>().toggleCanvas();
+                lockObject.GetComponent<LockControl>().DetachButton();
+
+                for (int i = 0; i < lockObject.GetComponent<LockControl>().inputCount; i++)
+                {
+                    lockCanvas.upButtons[i].onClick.RemoveListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
+                    lockCanvas.downButtons[i].onClick.RemoveListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
+                }
+
+                lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
             }
         }
     }

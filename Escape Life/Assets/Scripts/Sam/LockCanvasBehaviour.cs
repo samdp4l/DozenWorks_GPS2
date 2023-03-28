@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LockBehaviour : MonoBehaviour
+public class LockCanvasBehaviour : MonoBehaviour
 {
+    public Button[] upButtons;
+    public Button[] downButtons;
+
     public void toggleCanvas()
     {
         if (gameObject.activeSelf)
