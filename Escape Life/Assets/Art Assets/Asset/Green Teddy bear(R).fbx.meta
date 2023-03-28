@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 017e52057e9c81045b6b4890af6a2b33
+guid: 5668119ae91d5074fa9508a763d9a343
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: UnwrapChecker
-    second: {fileID: 2100000, guid: 4ad668441e623704794a701614c1c493, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
