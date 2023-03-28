@@ -50,6 +50,7 @@ public class PlayerClickMovement : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Floor"))
                     {
+                        Debug.Log("Floor");
                         collided = false;
 
                         targetX = hit.point.x;

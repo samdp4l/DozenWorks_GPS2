@@ -53,7 +53,7 @@ public class LockContro : MonoBehaviour
  //transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
            
         isOpened = true;
-          // Debug.Log("Password is Right!!");
+        Debug.Log("Password is Right!!");
         }
        // else
       //  {
