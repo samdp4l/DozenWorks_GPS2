@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// WORK IN PROGRESS
 public class BoardTilt : MonoBehaviour
 {
     public bool flat = true;
@@ -25,6 +25,6 @@ public class BoardTilt : MonoBehaviour
         Rotation.x += Mathf.Clamp(tilt.x, -10, 10);
         Rotation.z += Mathf.Clamp(tilt.z, -10, 10);
 
-        transform.Rotate(new Vector3(Rotation.x, 0, Rotation.z));
+        transform.Rotate(new Vector3(Rotation.x, Rotation.y, Rotation.z));
     }
 }

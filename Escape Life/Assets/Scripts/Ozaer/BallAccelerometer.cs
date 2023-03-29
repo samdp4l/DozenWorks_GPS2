@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//WORKS
 public class BallAccelerometer : MonoBehaviour
 {
     public bool flat = true;
