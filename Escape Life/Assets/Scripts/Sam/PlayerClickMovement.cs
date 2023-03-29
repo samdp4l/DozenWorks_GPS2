@@ -10,17 +10,11 @@ public class PlayerClickMovement : MonoBehaviour
     private Camera cam;
     private Touch firstTouch;
     [SerializeField]
-    private float moveRange;
+    private float moveRange, smoothTime;
     [SerializeField]
     private Transform camTransform;
-    [SerializeField]
-    private float smoothTime;
 
-    private float targetX;
-    private float targetZ;
-
-    private float refVeloX = 0f;
-    private float refVeloZ = 0f;
+    private float targetX, targetZ, refVeloX = 0f, refVeloZ = 0f;
 
     private bool collided = false;
 

@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class DrawerBehaviour : MonoBehaviour
 {
-    private bool isOpen = false;
-    private bool moving = false;
-    private float refVelo = 0f;
-    private float oriPos;
+    private bool isOpen = false, moving = false;
+    private float refVelo = 0f, oriPos;
 
+    public bool locked = false;
     [SerializeField]
     private bool xMove;
     [SerializeField]
-    private float targetPos;
-    [SerializeField]
-    private float drawerSpeed;
+    private float targetPos, drawerSpeed;
 
     private void Start()
     {
@@ -39,13 +37,11 @@ public class DrawerBehaviour : MonoBehaviour
                 {
                     float newPos = Mathf.SmoothDamp(transform.localPosition.x, targetPos, ref refVelo, drawerSpeed);
                     transform.localPosition = new Vector3(newPos, transform.localPosition.y, transform.localPosition.z);
-                    Debug.Log("1");
                 }
                 else
                 {
                     float newPos = Mathf.SmoothDamp(transform.localPosition.z, targetPos, ref refVelo, drawerSpeed);
                     transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, newPos);
-                    Debug.Log("2");
                 }
             }
             else
@@ -54,13 +50,11 @@ public class DrawerBehaviour : MonoBehaviour
                 {
                     float newPos = Mathf.SmoothDamp(transform.localPosition.x, oriPos, ref refVelo, drawerSpeed);
                     transform.localPosition = new Vector3(newPos, transform.localPosition.y, transform.localPosition.z);
-                    Debug.Log("3");
                 }
                 else
                 {
                     float newPos = Mathf.SmoothDamp(transform.localPosition.z, oriPos, ref refVelo, drawerSpeed);
                     transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, newPos);
-                    Debug.Log("4");
                 }
             }
         }
@@ -68,9 +62,12 @@ public class DrawerBehaviour : MonoBehaviour
 
     public void ToggleDrawer()
     {
-        moving = true;
+        if (!locked)
+        {
+            moving = true;
 
-        Invoke("StopMoving", drawerSpeed);
+            Invoke("StopMoving", 2f);
+        }
     }
 
     private void StopMoving()

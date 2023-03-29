@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Inspectable : MonoBehaviour
 {
-    public float zoomSpeed = 0.1f;
-    public float minZoomDistance = 1.0f;
-    public float maxZoomDistance = 2.0f;
-    private float _lastTouchDistance;
+    public float zoomSpeed = 0.1f, minZoomDistance = 1.0f, maxZoomDistance = 2.0f, rotationSpeed = 30.0f;
 
-    public float rotationSpeed = 30.0f;
+    private float _lastTouchDistance;
     private Vector2 lastTouchPosition;
 
     void Update()

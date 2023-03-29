@@ -7,64 +7,33 @@ public class LockControl : MonoBehaviour
 {
     public GameObject[] wheelObjects;
     [SerializeField]
-    private int[] correctCombination;
-    private int[] result;
+    private int[] correctCombination, result;
+    private bool isOpened = false;
+    private GameObject player;
 
     public Button confirmButton;
-    //public Button button;
-    private bool isOpened = false;
-
     public int inputCount;
     public float rotationOffset;
 
+    [SerializeField]
+    private GameObject lockedObject;
+
     public void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         result = new int[inputCount];
 
         isOpened = false;
-        //Rotate.Rotated += CheckResults;
     }
 
-    private void Update()
-    {
-        //Debug.Log(isOpened);
-    }
-
-    public void CheckResults(/*string wheelName, int number*/)
+    public void CheckResults()
     {
         for (int i = 0; i < inputCount; i++)
         {
             result[i] = wheelObjects[i].GetComponent<Rotate>().numberShown;
         }
-
-        //switch(wheelName)
-        //{
-        //    case "Cylinder001":
-        //        result[0] = number;
-        //        break;
-
-        //    case "Cylinder002":
-        //        result[1] = number;
-        //        break;
-
-        //    case "Cylinder003":
-        //        result[0] = number;
-        //        break;
-
-        //    case "Cylinder004":
-        //        result[1] = number;
-        //        break;
-
-        //    case "Cylinder005":
-        //        result[2] = number;
-        //        break;
-        //}
     }
-
-    //public void OnDestroy()
-    //{
-    //    Rotate.Rotated -= CheckResults;
-    //}
 
     void ConfirmResults()
     {
@@ -85,23 +54,20 @@ public class LockControl : MonoBehaviour
             if (!wrongCombo)
             {
                 isOpened = true;
-                Debug.Log("Password is Right!!");
+                //Debug.Log("Password is Right!!");
+
+                if (lockedObject.CompareTag("Drawer"))
+                {
+                    lockedObject.GetComponent<DrawerBehaviour>().locked = false;
+                    player.GetComponent<PlayerInteract>().CancelInspect();
+                    Destroy(gameObject);
+                }
             }
             else
             {
                 Debug.Log("Password is Wrong!!!!");
             }
         }
-
-        //if (isOpened == true)
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y + 0.005f, transform.position.z);
-        //    Debug.Log("PassWord is Right");
-        //}
-        //else
-        //{
-        //    Debug.Log("PassWord is Wrong");
-        //}
     }
 
     public void AttachButton()

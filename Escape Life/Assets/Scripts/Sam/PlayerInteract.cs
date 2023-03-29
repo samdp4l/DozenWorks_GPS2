@@ -8,24 +8,23 @@ public class PlayerInteract : MonoBehaviour
     private Camera cam;
     private Transform camTransform;
     private Touch firstTouch;
-    [SerializeField]
-    private float interactRange;
-    [SerializeField]
-    private float inspectDistance;
-    //[SerializeField]
-    //private Vector3 inspectOffset;
-    [SerializeField]
-    private GameObject inspectButton;
-    private GameObject lockObject;
-    [SerializeField]
-    private LockCanvasBehaviour lockCanvas;
 
     private Vector3 oriPos;
     private Quaternion oriRot;
     private RaycastHit hit;
 
+    [SerializeField]
+    private float interactRange, inspectDistance;
+    [SerializeField]
+    private GameObject inspectButton;
     [HideInInspector]
     public bool inspectMode = false;
+
+    private GameObject lockObject;
+    [SerializeField]
+    private LockCanvasBehaviour lockCanvas;
+    [SerializeField]
+    private GameObject inventoryBar;
 
     private void Awake()
     {
@@ -50,41 +49,19 @@ public class PlayerInteract : MonoBehaviour
                     if (hit.transform.CompareTag("Inspect"))
                     {
                         InspectObject();
-                        //inspectMode = true;
-                        //inspectButton.SetActive(true);
+                    }
 
-                        //oriPos = hit.transform.position;
-                        //oriRot = hit.transform.rotation;
-
-                        //hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-                        //hit.transform.rotation = camTransform.rotation;
+                    if (hit.transform.CompareTag("PickUp"))
+                    {
+                        PickUp();
                     }
 
                     if (hit.transform.CompareTag("Lock"))
                     {
                         InspectLock();
-                        //lockObject = hit.transform.gameObject;
-
-                        //inspectMode = true;
-                        //inspectButton.SetActive(true);
-
-                        //lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
-                        //lockObject.GetComponent<LockControl>().AttachButton();
-
-                        //for (int i = 0; i < lockObject.GetComponent<LockControl>().inputCount; i++)
-                        //{
-                        //    lockCanvas.upButtons[i].onClick.AddListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
-                        //    lockCanvas.downButtons[i].onClick.AddListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
-                        //}
-
-                        //oriPos = lockObject.transform.position;
-                        //oriRot = lockObject.transform.rotation;
-
-                        //lockObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
-                        //lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, lockObject.GetComponent<LockControl>().rotationOffset, 0f);
                     }
 
-                    if (hit.transform.CompareTag("Drawer") && !inspectMode)
+                    if (hit.transform.CompareTag("Drawer"))
                     {
                         hit.transform.gameObject.GetComponent<DrawerBehaviour>().ToggleDrawer();
                     }
@@ -99,6 +76,7 @@ public class PlayerInteract : MonoBehaviour
 
         inspectMode = true;
         inspectButton.SetActive(true);
+        inventoryBar.SetActive(false);
 
         oriPos = hit.transform.position;
         oriRot = hit.transform.rotation;
@@ -113,6 +91,7 @@ public class PlayerInteract : MonoBehaviour
 
         inspectMode = true;
         inspectButton.SetActive(true);
+        inventoryBar.SetActive(false);
 
         lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
         lockObject.GetComponent<LockControl>().AttachButton();
@@ -128,7 +107,17 @@ public class PlayerInteract : MonoBehaviour
 
         lockObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
         lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, lockObject.GetComponent<LockControl>().rotationOffset, 0f);
-    }   
+    }
+
+    public void InspectInventory()
+    {
+        inspectMode = true;
+        inspectButton.SetActive(true);
+        inventoryBar.SetActive(false);
+
+        hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        hit.transform.rotation.SetLookRotation(camTransform.position);
+    }
 
     public void CancelInspect()
     {
@@ -136,6 +125,7 @@ public class PlayerInteract : MonoBehaviour
         {
             inspectMode = false;
             inspectButton.SetActive(false);
+            inventoryBar.SetActive(true);
 
             if (hit.transform.CompareTag("Inspect"))
             {
@@ -160,6 +150,16 @@ public class PlayerInteract : MonoBehaviour
 
                 lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
             }
+        }
+    }
+
+    private void PickUp()
+    {
+        PickUpObject pickupObject = hit.transform.GetComponent<PickUpObject>();
+
+        if (pickupObject != null && !pickupObject.isPickedUp)
+        {
+            pickupObject.ObjectPickedUp();
         }
     }
 }
