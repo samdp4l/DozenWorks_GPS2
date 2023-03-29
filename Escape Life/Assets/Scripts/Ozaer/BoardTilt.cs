@@ -20,8 +20,11 @@ public class BoardTilt : MonoBehaviour
         {
             tilt = Quaternion.Euler(90, 0, 0) * tilt;
         }
-        Rotation.y += tilt.x;
-        Rotation.x += tilt.y;
-        transform.Rotate(new Vector3(Rotation.x, Rotation.y, 0));
+
+        Rotation.y += Mathf.Clamp(tilt.y,-10,10);
+        Rotation.x += Mathf.Clamp(tilt.x, -10, 10);
+        Rotation.z += Mathf.Clamp(tilt.z, -10, 10);
+
+        transform.Rotate(new Vector3(Rotation.x, 0, Rotation.z));
     }
 }
