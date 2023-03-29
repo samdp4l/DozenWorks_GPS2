@@ -22,8 +22,6 @@ public class BoardTilt : MonoBehaviour
         }
         Rotation.y += tilt.x;
         Rotation.x += tilt.y;
-        transform.rotation = Rotation;
+        transform.Rotate(new Vector3(Rotation.x, Rotation.y, 0));
     }
-
-
 }
