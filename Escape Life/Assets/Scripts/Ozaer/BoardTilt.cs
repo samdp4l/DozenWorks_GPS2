@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallAccelerometer : MonoBehaviour
+public class BoardTilt : MonoBehaviour
 {
     public bool flat = true;
-    private Rigidbody rigid;
-    public float forceMultiplier = 1.0f;
+    private Quaternion Rotation;
+    public float speed = 1.0f;
 
     void Start()
     {
-        rigid = GetComponent<Rigidbody>();
+        Rotation = transform.rotation;
     }
-
 
     void Update()
     {
@@ -21,6 +20,10 @@ public class BallAccelerometer : MonoBehaviour
         {
             tilt = Quaternion.Euler(90, 0, 0) * tilt;
         }
-        rigid.AddForce(tilt* forceMultiplier);
+        Rotation.y += tilt.x;
+        Rotation.x += tilt.y;
+        transform.rotation = Rotation;
     }
+
+
 }
