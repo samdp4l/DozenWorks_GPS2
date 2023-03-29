@@ -20,11 +20,13 @@ public class PlayerInteract : MonoBehaviour
     [HideInInspector]
     public bool inspectMode = false;
 
-    private GameObject lockObject;
+    private GameObject hitObject;
     [SerializeField]
     private LockCanvasBehaviour lockCanvas;
     [SerializeField]
     private GameObject inventoryBar;
+    [SerializeField]
+    private bool inventoryItem;
 
     private void Awake()
     {
@@ -48,17 +50,23 @@ public class PlayerInteract : MonoBehaviour
 
                     if (hit.transform.CompareTag("Inspect"))
                     {
-                        InspectObject();
+                        InspectObject(hit.transform.gameObject);
                     }
 
                     if (hit.transform.CompareTag("PickUp"))
                     {
+                        hitObject = hit.transform.gameObject;
                         PickUp();
                     }
 
                     if (hit.transform.CompareTag("Lock"))
                     {
                         InspectLock();
+                    }
+
+                    if (hit.transform.CompareTag("KeyLock") || hit.transform.CompareTag("Door"))
+                    {
+                        hit.transform.gameObject.GetComponent<KeyUnlockObjects>().CheckKey();
                     }
 
                     if (hit.transform.CompareTag("Drawer"))
@@ -70,92 +78,96 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    private void InspectObject()
+    public void InspectObject(GameObject obj)
     {
-        hit.transform.gameObject.AddComponent<Inspectable>();
+        obj.AddComponent<Inspectable>();
 
         inspectMode = true;
         inspectButton.SetActive(true);
         inventoryBar.SetActive(false);
 
-        oriPos = hit.transform.position;
-        oriRot = hit.transform.rotation;
+        oriPos = obj.transform.position;
+        oriRot = obj.transform.rotation;
 
-        hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-        hit.transform.rotation.SetLookRotation(camTransform.position);
+        obj.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        obj.transform.rotation.SetLookRotation(camTransform.position);
+
+        hitObject = obj;
     }
 
     private void InspectLock()
     {
-        lockObject = hit.transform.gameObject;
+        hitObject = hit.transform.gameObject;
 
         inspectMode = true;
         inspectButton.SetActive(true);
         inventoryBar.SetActive(false);
 
         lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
-        lockObject.GetComponent<LockControl>().AttachButton();
+        hitObject.GetComponent<LockControl>().AttachButton();
 
-        for (int i = 0; i < lockObject.GetComponent<LockControl>().inputCount; i++)
+        for (int i = 0; i < hitObject.GetComponent<LockControl>().inputCount; i++)
         {
-            lockCanvas.upButtons[i].onClick.AddListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
-            lockCanvas.downButtons[i].onClick.AddListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
+            lockCanvas.upButtons[i].onClick.AddListener(hitObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
+            lockCanvas.downButtons[i].onClick.AddListener(hitObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
         }
 
-        oriPos = lockObject.transform.position;
-        oriRot = lockObject.transform.rotation;
+        oriPos = hitObject.transform.position;
+        oriRot = hitObject.transform.rotation;
 
-        lockObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
-        lockObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, lockObject.GetComponent<LockControl>().rotationOffset, 0f);
+        hitObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
+        hitObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, hitObject.GetComponent<LockControl>().rotationOffset, 0f);
     }
 
-    public void InspectInventory()
-    {
-        inspectMode = true;
-        inspectButton.SetActive(true);
-        inventoryBar.SetActive(false);
+    //public void InspectInventory()
+    //{
+    //    inspectMode = true;
+    //    inspectButton.SetActive(true);
+    //    inventoryBar.SetActive(false);
 
-        hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-        hit.transform.rotation.SetLookRotation(camTransform.position);
-    }
+    //    hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+    //    hit.transform.rotation.SetLookRotation(camTransform.position);
+    //}
 
     public void CancelInspect()
     {
-        if (inspectMode)
+        inspectMode = false;
+        inspectButton.SetActive(false);
+        inventoryBar.SetActive(true);
+
+        if (hitObject.CompareTag("Inspect"))
         {
-            inspectMode = false;
-            inspectButton.SetActive(false);
-            inventoryBar.SetActive(true);
+            Destroy(hit.transform.gameObject.GetComponent<Inspectable>());
 
-            if (hit.transform.CompareTag("Inspect"))
+            hitObject.transform.position = oriPos;
+            hitObject.transform.rotation = oriRot;
+        }
+
+        if (hitObject.CompareTag("Lock"))
+        {
+            hitObject.transform.position = oriPos;
+            hitObject.transform.rotation = oriRot;
+
+            hitObject.GetComponent<LockControl>().DetachButton();
+
+            for (int i = 0; i < hitObject.GetComponent<LockControl>().inputCount; i++)
             {
-                Destroy(hit.transform.gameObject.GetComponent<Inspectable>());
-
-                hit.transform.position = oriPos;
-                hit.transform.rotation = oriRot;
+                lockCanvas.upButtons[i].onClick.RemoveListener(hitObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
+                lockCanvas.downButtons[i].onClick.RemoveListener(hitObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
             }
 
-            if (hit.transform.CompareTag("Lock"))
-            {
-                lockObject.transform.position = oriPos;
-                lockObject.transform.rotation = oriRot;
+            lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
+        }
 
-                lockObject.GetComponent<LockControl>().DetachButton();
-
-                for (int i = 0; i < lockObject.GetComponent<LockControl>().inputCount; i++)
-                {
-                    lockCanvas.upButtons[i].onClick.RemoveListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateleft);
-                    lockCanvas.downButtons[i].onClick.RemoveListener(lockObject.GetComponent<LockControl>().wheelObjects[i].GetComponent<Rotate>().Rotateright);
-                }
-
-                lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
-            }
+        if (hitObject.CompareTag("PickUp"))
+        {
+            hitObject.SetActive(false);
         }
     }
 
     private void PickUp()
     {
-        PickUpObject pickupObject = hit.transform.GetComponent<PickUpObject>();
+        PickUpObject pickupObject = hitObject.GetComponent<PickUpObject>();
 
         if (pickupObject != null && !pickupObject.isPickedUp)
         {

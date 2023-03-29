@@ -7,7 +7,8 @@ public class LockControl : MonoBehaviour
 {
     public GameObject[] wheelObjects;
     [SerializeField]
-    private int[] correctCombination, result;
+    private int[] correctCombination;
+    private int[] result;
     private bool isOpened = false;
     private GameObject player;
 
@@ -60,6 +61,14 @@ public class LockControl : MonoBehaviour
                 {
                     lockedObject.GetComponent<DrawerBehaviour>().locked = false;
                     player.GetComponent<PlayerInteract>().CancelInspect();
+                    Destroy(gameObject);
+                }
+
+                if (lockedObject.CompareTag("LockBox"))
+                {
+                    player.GetComponent<PlayerInteract>().CancelInspect();
+                    Destroy(lockedObject.GetComponentInParent<Collider>());
+                    Destroy(lockedObject);
                     Destroy(gameObject);
                 }
             }

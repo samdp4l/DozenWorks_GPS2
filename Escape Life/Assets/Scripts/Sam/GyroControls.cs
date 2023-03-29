@@ -16,7 +16,6 @@ public class GyroControls : MonoBehaviour
     private void Start()
     {
         cameraContainer = new GameObject("Camera Container");
-        cameraContainer.transform.position = player.position;
         transform.SetParent(cameraContainer.transform);
         cameraContainer.transform.SetParent(player.transform);
 
@@ -30,7 +29,7 @@ public class GyroControls : MonoBehaviour
             gyro = Input.gyro;
             gyro.enabled = true;
 
-            cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+            //cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
             rot = new Quaternion(0, 0, 1, 0);
 
             return true;
@@ -44,8 +43,6 @@ public class GyroControls : MonoBehaviour
         {
             transform.rotation = gyro.attitude * rot;
         }
-
-        //player.rotation = gyro.attitude * rot;
 
         transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
     }
