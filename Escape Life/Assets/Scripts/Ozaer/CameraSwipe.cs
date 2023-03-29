@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// NOT WORKING RN I'M NOT SO SURE RN 
+
 public class CameraSwipe : MonoBehaviour
 {
     private Touch initialTouch = new Touch();
