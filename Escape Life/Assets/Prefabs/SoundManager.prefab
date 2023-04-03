@@ -45,8 +45,129 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: ClockRing
+    clip: {fileID: 8300000, guid: 753c3a7fc1cef7945bc8084a45dccc46, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: ClockTick
+    clip: {fileID: 8300000, guid: a7536a8e943e6a041995ecf2903b7b28, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: LockDial
+    clip: {fileID: 8300000, guid: 78b9003d2eba21e4a898eeb161b46bcd, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 64691546ad43a564bb2aedbb24eefb8d, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: DoorRattle
+    clip: {fileID: 8300000, guid: 7f523ce57880c7942b8079b4c9caff6e, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: DoorShut
+    clip: {fileID: 8300000, guid: 65606abf7f6307e46970567246498fea, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: DrawerSlide
+    clip: {fileID: 8300000, guid: 445a56c9abe7c9a49b0efda67f1c4f5f, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: SwitchOff
+    clip: {fileID: 8300000, guid: 40c871a26a0d71843aadeac74adbace4, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: SwitchOn
+    clip: {fileID: 8300000, guid: 704e99053cae8e54c9538652fd2ba621, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: LockRattle
+    clip: {fileID: 8300000, guid: 1dc39a4b761e86f4f99b0d1aaa10b75e, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: LockUnlock
+    clip: {fileID: 8300000, guid: fb2526ff49421b84ab60bd741310559a, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: PickupCloth
+    clip: {fileID: 8300000, guid: b0b34edb2a130554db121fccb3f4dbd6, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: PickupKey
+    clip: {fileID: 8300000, guid: 9724c7f8c91474a4a9e2b36656bb8c99, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: PickupOthers
+    clip: {fileID: 8300000, guid: 192e4caacf0b4674cabc8fa24e0ddac5, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: PickupPaper
+    clip: {fileID: 8300000, guid: 1efbf6a34dc0bf64f9ab60f16153950c, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
+    volume: 0
+    pitch: 0
+    loop: 0
+    priority: 0
+    source: {fileID: 0}
+  - name: PickupWood
+    clip: {fileID: 8300000, guid: 582ef40ae4f441d4894c895cb2f4b7cb, type: 3}
+    mixer: {fileID: 24300002, guid: 60269799c59bac648ac635a797d5ffdc, type: 2}
     volume: 0
     pitch: 0
     loop: 0

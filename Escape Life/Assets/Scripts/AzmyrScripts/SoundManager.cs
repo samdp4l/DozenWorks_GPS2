@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class Sound
@@ -9,6 +10,7 @@ public class Sound
     public string name;
 
     public AudioClip clip;
+    public AudioMixerGroup mixer;
 
     [Range(0f, 1f)]
     public float volume;
@@ -24,6 +26,7 @@ public class Sound
     [HideInInspector]
     public AudioSource source;
 }
+
 public class SoundManager : MonoBehaviour
 {
     public Sound[] sounds;
@@ -51,7 +54,13 @@ public class SoundManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.mixer;
         }
+    }
+
+    void Start()
+    {
+        //Play("BGM");
     }
 
     public void Play(string name)

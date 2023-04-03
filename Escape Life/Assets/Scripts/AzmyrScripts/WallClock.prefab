@@ -219,7 +219,7 @@ MonoBehaviour:
   minuteHand: {fileID: 8644048484375240228}
   secondHand: {fileID: 3372872604293253389}
   gameOverCanvas: {fileID: 0}
-  popupDelay: 5
+  timer: 900
 --- !u!1 &3372872604293253386
 GameObject:
   m_ObjectHideFlags: 0

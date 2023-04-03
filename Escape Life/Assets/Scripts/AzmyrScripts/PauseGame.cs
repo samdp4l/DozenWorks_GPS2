@@ -35,9 +35,4 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gamePaused = false;
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
