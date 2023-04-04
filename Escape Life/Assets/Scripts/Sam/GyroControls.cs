@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GyroControls : MonoBehaviour
@@ -7,6 +8,8 @@ public class GyroControls : MonoBehaviour
     private bool gyroEnabled;
     private Gyroscope gyro;
 
+    [SerializeField]
+    private GameObject player;
     private GameObject cameraContainer;
     private Quaternion rot;
 
@@ -17,9 +20,11 @@ public class GyroControls : MonoBehaviour
         transform.SetParent(cameraContainer.transform);
 
         gyroEnabled = EnableGyro();
+
+        cameraContainer.transform.SetParent(player.transform);
     }
 
-    private bool EnableGyro()
+    public bool EnableGyro()
     {
         if (SystemInfo.supportsGyroscope)
         {
@@ -27,6 +32,7 @@ public class GyroControls : MonoBehaviour
             gyro.enabled = true;
 
             cameraContainer.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+
             rot = new Quaternion(0, 0, 1, 0);
 
             return true;
@@ -38,9 +44,9 @@ public class GyroControls : MonoBehaviour
     {
         if (gyroEnabled)
         {
-            transform.localRotation = gyro.attitude * rot;
+            transform.localRotation = Input.gyro.attitude * rot;
         }
 
-        //this.transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
+        transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
     }
 }

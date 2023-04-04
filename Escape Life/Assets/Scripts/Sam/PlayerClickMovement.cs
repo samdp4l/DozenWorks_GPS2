@@ -1,25 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerClickMovement : MonoBehaviour
 {
     private Camera cam;
     private Touch firstTouch;
     [SerializeField]
-    private float interactRange;
+    private float moveRange, smoothTime;
     [SerializeField]
     private Transform camTransform;
 
-    private void Start()
+    private float targetX, targetZ, refVeloX = 0f, refVeloZ = 0f;
+
+    private bool collided = false;
+
+    private void Awake()
     {
         cam = Camera.main;
-        camTransform = Camera.main.transform;
+    }
+
+    private void Start()
+    {
+        targetX = transform.position.x;
+        targetZ = transform.position.z;
     }
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !gameObject.GetComponent<PlayerInteract>().inspectMode)
         {
             firstTouch = Input.GetTouch(0);
 
@@ -28,14 +40,37 @@ public class PlayerClickMovement : MonoBehaviour
                 RaycastHit hit;
                 Ray ray = cam.ScreenPointToRay(firstTouch.position);
 
-                if (Physics.Raycast(ray, out hit, interactRange))
+                if (Physics.Raycast(ray, out hit, moveRange))
                 {
                     if (hit.transform.CompareTag("Floor"))
                     {
-                        camTransform.position = new Vector3(hit.point.x, camTransform.position.y, hit.point.z);
+                        Debug.Log("Floor");
+                        collided = false;
+
+                        targetX = hit.point.x;
+                        targetZ = hit.point.z;
                     }
                 }
             }
+        }
+
+        PlayerMove(targetX, targetZ);
+        //Debug.Log(collided);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        collided = true;
+    }
+
+    private void PlayerMove(float hitX, float hitZ)
+    {
+        if (!collided)
+        {
+            float newPosX = Mathf.SmoothDamp(transform.position.x, hitX, ref refVeloX, smoothTime);
+            float newPosZ = Mathf.SmoothDamp(transform.position.z, hitZ, ref refVeloZ, smoothTime);
+
+            transform.position = new Vector3(newPosX, transform.position.y, newPosZ);
         }
     }
 }
