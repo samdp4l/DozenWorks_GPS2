@@ -9,14 +9,10 @@ public class KeyUnlockObjects : MonoBehaviour
     [SerializeField]
     private GameObject lockedObject;
 
-    private bool locked = true;
-
     public void CheckKey()
     {
         if (key.activeSelf)
         {
-            locked = false;
-
             if (lockedObject.CompareTag("Drawer"))
             {
                 lockedObject.GetComponent<DrawerBehaviour>().locked = false;

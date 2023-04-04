@@ -20,13 +20,13 @@ public class PlayerInteract : MonoBehaviour
     [HideInInspector]
     public bool inspectMode = false;
 
+    [SerializeField]
+    private GameObject lightSource;
     private GameObject hitObject;
     [SerializeField]
     private LockCanvasBehaviour lockCanvas;
     [SerializeField]
     private GameObject inventoryBar;
-    [SerializeField]
-    private bool inventoryItem;
 
     private void Awake()
     {
@@ -72,6 +72,11 @@ public class PlayerInteract : MonoBehaviour
                     if (hit.transform.CompareTag("Drawer"))
                     {
                         hit.transform.gameObject.GetComponent<DrawerBehaviour>().ToggleDrawer();
+                    }
+
+                    if (hit.transform.CompareTag("LightSwitch"))
+                    {
+                        lightSource.SetActive(!lightSource.activeSelf);
                     }
                 }
             }
@@ -119,35 +124,23 @@ public class PlayerInteract : MonoBehaviour
         hitObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, hitObject.GetComponent<LockControl>().rotationOffset, 0f);
     }
 
-    //public void InspectInventory()
-    //{
-    //    inspectMode = true;
-    //    inspectButton.SetActive(true);
-    //    inventoryBar.SetActive(false);
-
-    //    hit.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-    //    hit.transform.rotation.SetLookRotation(camTransform.position);
-    //}
-
     public void CancelInspect()
     {
         inspectMode = false;
         inspectButton.SetActive(false);
         inventoryBar.SetActive(true);
 
+        hitObject.transform.position = oriPos;
+        hitObject.transform.rotation = oriRot;
+        hitObject.transform.localScale = Vector3.one;
+
         if (hitObject.CompareTag("Inspect"))
         {
             Destroy(hit.transform.gameObject.GetComponent<Inspectable>());
-
-            hitObject.transform.position = oriPos;
-            hitObject.transform.rotation = oriRot;
         }
 
         if (hitObject.CompareTag("Lock"))
         {
-            hitObject.transform.position = oriPos;
-            hitObject.transform.rotation = oriRot;
-
             hitObject.GetComponent<LockControl>().DetachButton();
 
             for (int i = 0; i < hitObject.GetComponent<LockControl>().inputCount; i++)
