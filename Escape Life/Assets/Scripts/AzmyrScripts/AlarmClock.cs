@@ -17,15 +17,21 @@ public class AlarmClock : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began &&
-                GetComponent<Collider2D>() == Physics2D.OverlapPoint(touch.position))
+            if (touch.phase == TouchPhase.Began)
             {
-                if (audioSource.isPlaying)
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
                 {
-                    audioSource.Stop();
-                }               
+                    if (audioSource.isPlaying)
+                    {
+                        audioSource.Stop();
+                    }
+                }
             }
         }
     }
 }
+
 
