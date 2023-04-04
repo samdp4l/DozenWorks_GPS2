@@ -1,18 +1,32 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 <<<<<<<< HEAD:Escape Life/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
 guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
 ========
 guid: 8d679048f28303042a5dd72eec29b4da
 >>>>>>>> main:Escape Life/Assets/Scenes/Kenny_Levl.unity.meta
 =======
+>>>>>>> azmyr
 <<<<<<<< HEAD:Escape Life/Assets/Bill's Scene.meta
 guid: 808ce934b08c3c94d95d2a915903f990
 folderAsset: yes
 ========
 guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
 >>>>>>>> main:Escape Life/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:Escape Life/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+========
+guid: c199a2555bc07db419a0a7282db00143
+folderAsset: yes
+>>>>>>>> 81276d4680c9f5d10e3bc3ec0d961be037162a50:Escape Life/Assets/Hzx Scripts.meta
+>>>>>>> Hzx
+=======
 >>>>>>> d78858abc90782514a1eed08c81ec9d907dee135
+>>>>>>> azmyr
 DefaultImporter:
   externalObjects: {}
   userData: 
