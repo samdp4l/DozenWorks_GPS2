@@ -15,11 +15,15 @@ public class KeyUnlockObjects : MonoBehaviour
         {
             if (lockedObject.CompareTag("Drawer"))
             {
+                SoundManager.instance.Play("LockUnlock");
+
                 lockedObject.GetComponent<DrawerBehaviour>().locked = false;
             }
 
             if (lockedObject.CompareTag("Door"))
             {
+                SoundManager.instance.Play("DoorOpen");
+
                 Destroy(lockedObject);
             }
 

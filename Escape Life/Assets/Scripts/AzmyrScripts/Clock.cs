@@ -22,8 +22,8 @@ public class Clock : MonoBehaviour
     void Start()
     {
         hourHand.localRotation = Quaternion.Euler(-90f, 0f, -180f);
-        minuteHand.localRotation = Quaternion.Euler(0f, 0f, -180f); 
-        secondHand.localRotation = Quaternion.Euler(0f, 0f, 0f); //the second hand keeps starting at 15 seconds instead of 0
+        //minuteHand.localRotation = Quaternion.Euler(0f, 0f, -180f); 
+        //secondHand.localRotation = Quaternion.Euler(0f, 0f, -90f); //the second hand keeps starting at 15 seconds instead of 0
     }
 
     void UpdateClock()
@@ -35,15 +35,17 @@ public class Clock : MonoBehaviour
         float minutesRotation = minutesToDegrees * (currentSeconds / 60f); 
         float secondsRotation = secondsToDegrees * (currentSeconds % 60f);
 
-        minuteHand.localRotation = Quaternion.Euler(-90f, 0f, minutesRotation); 
-        secondHand.localRotation = Quaternion.Euler(-90f, 0f, secondsRotation);
+        minuteHand.localRotation = Quaternion.Euler(-90f, 0f, minutesRotation - 90f); 
+        secondHand.localRotation = Quaternion.Euler(-90f, 0f, secondsRotation - 90f);
 
         if (!canvasDisplayed && elapsedSeconds >= timer)
         {
+            SoundManager.instance.Play("GameOver");
+
             Time.timeScale = 0f;
             gameOverCanvas.gameObject.SetActive(true); 
             canvasDisplayed = true; 
-            elapsedSeconds = 0f; 
+            elapsedSeconds = 0f;
         }
     }
 

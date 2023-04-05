@@ -11,6 +11,7 @@ public class PlayerInteract : MonoBehaviour
 
     private Vector3 oriPos;
     private Quaternion oriRot;
+    private Vector3 oriScale;
     private RaycastHit hit;
 
     [SerializeField]
@@ -50,17 +51,24 @@ public class PlayerInteract : MonoBehaviour
 
                     if (hit.transform.CompareTag("Inspect"))
                     {
+                        SoundManager.instance.Play("PickupOthers");
+
                         InspectObject(hit.transform.gameObject);
                     }
 
                     if (hit.transform.CompareTag("PickUp"))
                     {
+                        SoundManager.instance.Play("PickupKey");
+
                         hitObject = hit.transform.gameObject;
                         PickUp();
                     }
 
                     if (hit.transform.CompareTag("Lock"))
                     {
+                        SoundManager.instance.Play("LockRattle");
+
+                        hitObject = hit.transform.gameObject;
                         InspectLock();
                     }
 
@@ -76,6 +84,7 @@ public class PlayerInteract : MonoBehaviour
 
                     if (hit.transform.CompareTag("LightSwitch"))
                     {
+                        SoundManager.instance.Play("SwitchOn");
                         lightSource.SetActive(!lightSource.activeSelf);
                     }
                 }
@@ -93,6 +102,7 @@ public class PlayerInteract : MonoBehaviour
 
         oriPos = obj.transform.position;
         oriRot = obj.transform.rotation;
+        oriScale = obj.transform.localScale;
 
         obj.transform.position = camTransform.position + camTransform.forward * inspectDistance;
         obj.transform.rotation.SetLookRotation(camTransform.position);
@@ -102,12 +112,11 @@ public class PlayerInteract : MonoBehaviour
 
     private void InspectLock()
     {
-        hitObject = hit.transform.gameObject;
-
         inspectMode = true;
         inspectButton.SetActive(true);
         inventoryBar.SetActive(false);
 
+        lockCanvas.GetComponent<LockCanvasBehaviour>().threeButtons = hitObject.GetComponent<LockControl>().threeWheels;
         lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
         hitObject.GetComponent<LockControl>().AttachButton();
 
@@ -137,6 +146,7 @@ public class PlayerInteract : MonoBehaviour
         if (hitObject.CompareTag("Inspect"))
         {
             Destroy(hit.transform.gameObject.GetComponent<Inspectable>());
+            hitObject.transform.localScale = oriScale;
         }
 
         if (hitObject.CompareTag("Lock"))

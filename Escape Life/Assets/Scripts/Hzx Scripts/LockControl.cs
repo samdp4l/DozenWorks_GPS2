@@ -15,6 +15,7 @@ public class LockControl : MonoBehaviour
     public Button confirmButton;
     public int inputCount;
     public float rotationOffset;
+    public bool threeWheels;
 
     [SerializeField]
     private GameObject lockedObject;
@@ -54,6 +55,8 @@ public class LockControl : MonoBehaviour
 
             if (!wrongCombo)
             {
+                SoundManager.instance.Play("LockUnlock");
+
                 isOpened = true;
                 //Debug.Log("Password is Right!!");
 
@@ -74,7 +77,9 @@ public class LockControl : MonoBehaviour
             }
             else
             {
-                Debug.Log("Password is Wrong!!!!");
+                SoundManager.instance.Play("LockRattle");
+
+                //Debug.Log("Password is Wrong!!!!");
             }
         }
     }
