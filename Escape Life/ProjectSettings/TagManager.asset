@@ -4,9 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Terrain
-  - DetectRange
   - Floor
+  - LightSwitch
+  - Lock
+  - PickUp
+  - Drawer
+  - Inspect
+  - KeyLock
+  - LockBox
+  - Door
   layers:
   - Default
   - TransparentFX
