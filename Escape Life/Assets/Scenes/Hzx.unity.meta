@@ -1,5 +1,50 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 894a4cbbfc38139458a68c52d87368ed
+=======
+<<<<<<< HEAD
+<<<<<<<< HEAD:Escape Life/Assets/Scenes/Azmyr.unity.meta
+guid: 66728bc76bacf8f42b714d50025f0fd1
+========
+guid: a17fe7727b98968448a6fc914199de5b
+>>>>>>>> main:Escape Life/Assets/Scenes/Hzx.unity.meta
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<<< HEAD:Escape Life/Assets/Scenes/Hzx.unity.meta
+guid: a17fe7727b98968448a6fc914199de5b
+========
+guid: 7cb06a0f19d0886488d7ed2ffe8a72a0
+>>>>>>>> azmyr:Escape Life/Assets/Scenes/Azmyr.unity.meta
+=======
+<<<<<<<< HEAD:Escape Life/Assets/Scenes/Bill.unity.meta
+guid: c1104b00fe59939459981aae22e3ac11
+========
+guid: a17fe7727b98968448a6fc914199de5b
+>>>>>>>> main:Escape Life/Assets/Scenes/Hzx.unity.meta
+>>>>>>> Bill
+=======
+=======
+<<<<<<<< HEAD:Escape Life/Assets/Scenes/Hzx.unity.meta
+guid: 58b1ce49ef58fdb43be3933027443a1a
+========
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+>>>>>>>> 81276d4680c9f5d10e3bc3ec0d961be037162a50:Escape Life/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+=======
+<<<<<<< HEAD
+>>>>>>> Hzx
+guid: a17fe7727b98968448a6fc914199de5b
+=======
+guid: 58b1ce49ef58fdb43be3933027443a1a
+>>>>>>> d983754881de785f994caa2ce0add99509d8e236
+<<<<<<< HEAD
+>>>>>>> Hzx
+=======
+>>>>>>> 81276d4680c9f5d10e3bc3ec0d961be037162a50
+>>>>>>> Hzx
+>>>>>>> d78858abc90782514a1eed08c81ec9d907dee135
+>>>>>>> main
 DefaultImporter:
   externalObjects: {}
   userData: 
