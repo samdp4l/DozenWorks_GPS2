@@ -7,7 +7,6 @@ public class Swipe : MonoBehaviour
     private bool swipeLeft, swipeRight, swipeUp, swipeDown, tap;
     private bool isDraging = false;
     private Vector2 startTouch, swipeLength;
-
     public Vector2 SwipeLength { get { return swipeLength; } }
     public bool Tap { get { return tap; } }
     public bool SwipeLeft { get { return swipeLeft; } }

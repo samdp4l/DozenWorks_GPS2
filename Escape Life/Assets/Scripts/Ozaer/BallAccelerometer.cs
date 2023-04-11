@@ -4,7 +4,9 @@ using UnityEngine;
 //WORKS
 public class BallAccelerometer : MonoBehaviour
 {
-    public bool flat = true;
+    //boolean to control accelerometer activation, requires deactivation after game and activation when opening the mini game. by default i put true
+    public bool isFlat = true;
+
     private Rigidbody rigid;
     public float forceMultiplier = 1.0f;
 
@@ -17,7 +19,7 @@ public class BallAccelerometer : MonoBehaviour
     void Update()
     {
         Vector3 tilt = Input.acceleration;
-        if (flat)
+        if (isFlat)
         {
             tilt = Quaternion.Euler(90, 0, 0) * tilt;
         }
