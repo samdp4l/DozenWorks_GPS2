@@ -42,7 +42,7 @@ public class GyroControls : MonoBehaviour
 
     private void Update()
     {
-        if (gyroEnabled && !player.GetComponent<PlayerInteract>().inspectMode)
+        if (gyroEnabled && !player.GetComponent<PlayerInteract>().inspectMode && !PauseGame.gamePaused)
         {
             transform.localRotation = Input.gyro.attitude * rot;
             transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
