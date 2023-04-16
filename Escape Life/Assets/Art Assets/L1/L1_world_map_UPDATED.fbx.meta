@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: L1_world map_UV_text
-    second: {fileID: 2800000, guid: 81a65801b75fec248bf06343eb49ca5f, type: 3}
+    second: {fileID: 2800000, guid: 093af85e66e8cec4b8fbf2892cc5f3d0, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
