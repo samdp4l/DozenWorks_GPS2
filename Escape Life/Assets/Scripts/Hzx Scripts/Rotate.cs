@@ -39,6 +39,8 @@ public class Rotate : MonoBehaviour
 
     public IEnumerator RotateLeft()
     {
+        SoundManager.instance.Play("LockDial");
+
         coroutineAllowed = false;
 
         for(int i = 0; i<=11;i++)
@@ -60,6 +62,8 @@ public class Rotate : MonoBehaviour
 
     public IEnumerator RotateRight()
     {
+        SoundManager.instance.Play("LockDial");
+
         coroutineAllowed = false;
 
         for (int i = 0; i <= 11; i++)

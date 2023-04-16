@@ -62,8 +62,10 @@ public class DrawerBehaviour : MonoBehaviour
 
     public void ToggleDrawer()
     {
-        if (!locked)
+        if (!locked && !moving)
         {
+            SoundManager.instance.Play("DrawerSlide");
+
             moving = true;
 
             Invoke("StopMoving", 2f);
