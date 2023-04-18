@@ -18,6 +18,8 @@ public class PlayerInteract : MonoBehaviour
     private float interactRange, inspectDistance;
     [SerializeField]
     private GameObject inspectButton;
+    [SerializeField]
+    private GameObject resetButton;
     [HideInInspector]
     public bool inspectMode = false;
 
@@ -53,7 +55,8 @@ public class PlayerInteract : MonoBehaviour
                     {
                         SoundManager.instance.Play("PickupOthers");
 
-                        InspectObject(hit.transform.gameObject);
+                        hitObject = hit.transform.gameObject;
+                        InspectObject();
                     }
 
                     if (hit.transform.CompareTag("PickUp"))
@@ -92,22 +95,28 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    public void InspectObject(GameObject obj)
+    public void InspectObject()
     {
-        obj.AddComponent<Inspectable>();
+        hitObject.AddComponent<Inspectable>();
 
         inspectMode = true;
         inspectButton.SetActive(true);
+        resetButton.SetActive(true);
         inventoryBar.SetActive(false);
 
-        oriPos = obj.transform.position;
-        oriRot = obj.transform.rotation;
-        oriScale = obj.transform.localScale;
+        oriPos = hitObject.transform.position;
+        oriRot = hitObject.transform.rotation;
+        oriScale = hitObject.transform.localScale;
 
-        obj.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-        obj.transform.LookAt(camTransform.position);
+        hitObject.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        hitObject.transform.LookAt(camTransform.position);
+    }
 
-        hitObject = obj;
+    public void ResetRotation()
+    {
+        hitObject.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        hitObject.transform.LookAt(camTransform.position);
+        hitObject.transform.localScale = oriScale;
     }
 
     private void InspectLock()
@@ -133,10 +142,17 @@ public class PlayerInteract : MonoBehaviour
         hitObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, hitObject.GetComponent<LockControl>().rotationOffset, 0f);
     }
 
+    public void InspectInventory(GameObject invObj)
+    {
+        hitObject = invObj;
+        InspectObject();
+    }
+
     public void CancelInspect()
     {
         inspectMode = false;
         inspectButton.SetActive(false);
+        resetButton.SetActive(false);
         inventoryBar.SetActive(true);
 
         hitObject.transform.position = oriPos;

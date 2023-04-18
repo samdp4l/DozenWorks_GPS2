@@ -70,8 +70,9 @@ public class LockControl : MonoBehaviour
                 if (lockedObject.CompareTag("LockBox"))
                 {
                     player.GetComponent<PlayerInteract>().CancelInspect();
+                    lockedObject.GetComponent<HingeJoint>().useSpring = true;
+
                     Destroy(lockedObject.GetComponentInParent<Collider>());
-                    Destroy(lockedObject);
                     Destroy(gameObject);
                 }
             }

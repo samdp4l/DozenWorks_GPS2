@@ -3,20 +3,29 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerClickMovement : MonoBehaviour
 {
-    private Camera cam;
     private Touch firstTouch;
+    private bool tappedOnce = false;
     [SerializeField]
-    private float moveRange, smoothTime;
+    private float doubleTapThreshold;
+    private float firstTapTime = 0f;
+
+    private Camera cam;
     [SerializeField]
     private Transform camTransform;
 
-    private float targetX, targetZ, refVeloX = 0f, refVeloZ = 0f;
+    [SerializeField]
+    private float moveRange, walkMoveSpeed;
+    private float moveSmoothTime, targetX, targetZ, refVeloX = 0f, refVeloZ = 0f;
 
-    private bool collided = false;
+    [SerializeField]
+    private float crouchMoveSpeed, standHeight, crouchHeight, crouchSmoothTime;
+    private float crouchRefVelo = 0f;
+    private bool collided = false, crouching = false, crouched = false;
 
     private void Awake()
     {
@@ -25,6 +34,7 @@ public class PlayerClickMovement : MonoBehaviour
 
     private void Start()
     {
+        moveSmoothTime = walkMoveSpeed;
         targetX = transform.position.x;
         targetZ = transform.position.z;
     }
@@ -35,20 +45,46 @@ public class PlayerClickMovement : MonoBehaviour
         {
             firstTouch = Input.GetTouch(0);
 
-            if (firstTouch.phase == TouchPhase.Began)
+            if (firstTouch.phase == TouchPhase.Began && !tappedOnce)
             {
-                RaycastHit hit;
-                Ray ray = cam.ScreenPointToRay(firstTouch.position);
+                tappedOnce = true;
+                firstTapTime = Time.time;
+            }
+            else if (firstTouch.phase == TouchPhase.Began && tappedOnce && (Time.time - firstTapTime) <= doubleTapThreshold && !crouching)
+            {
+                crouching = true;
 
-                if (Physics.Raycast(ray, out hit, moveRange))
+                tappedOnce = false;
+                firstTapTime = 0f;
+
+                if (crouched)
                 {
-                    if (hit.transform.CompareTag("Floor"))
-                    {
-                        collided = false;
+                    moveSmoothTime = walkMoveSpeed;
+                }
+                else
+                {
+                    moveSmoothTime = crouchMoveSpeed;
+                }
 
-                        targetX = hit.point.x;
-                        targetZ = hit.point.z;
-                    }
+                Invoke("StopCrouch", crouchSmoothTime + 2f);
+            }
+        }
+        else if (tappedOnce && (Time.time - firstTapTime) > doubleTapThreshold && !gameObject.GetComponent<PlayerInteract>().inspectMode)
+        {
+            tappedOnce = false;
+            firstTapTime = 0f;
+
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(firstTouch.position);
+
+            if (Physics.Raycast(ray, out hit, moveRange))
+            {
+                if (hit.transform.CompareTag("Floor"))
+                {
+                    collided = false;
+
+                    targetX = hit.point.x;
+                    targetZ = hit.point.z;
                 }
             }
         }
@@ -59,7 +95,15 @@ public class PlayerClickMovement : MonoBehaviour
             targetZ = transform.position.z;
         }
 
-        PlayerMove(targetX, targetZ);
+        if (crouching)
+        {
+            PlayerCrouch();
+        }
+
+        if (!collided)
+        {
+            PlayerMove(targetX, targetZ);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -69,12 +113,29 @@ public class PlayerClickMovement : MonoBehaviour
 
     private void PlayerMove(float hitX, float hitZ)
     {
-        if (!collided)
-        {
-            float newPosX = Mathf.SmoothDamp(transform.position.x, hitX, ref refVeloX, smoothTime);
-            float newPosZ = Mathf.SmoothDamp(transform.position.z, hitZ, ref refVeloZ, smoothTime);
+        float newPosX = Mathf.SmoothDamp(transform.position.x, hitX, ref refVeloX, moveSmoothTime);
+        float newPosZ = Mathf.SmoothDamp(transform.position.z, hitZ, ref refVeloZ, moveSmoothTime);
 
-            transform.position = new Vector3(newPosX, transform.position.y, newPosZ);
+        transform.position = new Vector3(newPosX, transform.position.y, newPosZ);
+    }
+
+    private void PlayerCrouch()
+    {
+        if (!crouched)
+        {
+            float newPos = Mathf.SmoothDamp(camTransform.localPosition.y, crouchHeight, ref crouchRefVelo, crouchSmoothTime);
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x, newPos, camTransform.localPosition.z);
         }
+        else
+        {
+            float newPos = Mathf.SmoothDamp(camTransform.localPosition.y, standHeight, ref crouchRefVelo, crouchSmoothTime);
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x, newPos, camTransform.localPosition.z);
+        }
+    }
+
+    private void StopCrouch()
+    {
+        crouched = !crouched;
+        crouching = false;
     }
 }
