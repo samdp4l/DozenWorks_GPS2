@@ -9,21 +9,21 @@ public class KeyUnlockObjects : MonoBehaviour
     [SerializeField]
     private GameObject lockedObject;
 
-    private bool locked = true;
-
     public void CheckKey()
     {
         if (key.activeSelf)
         {
-            locked = false;
-
             if (lockedObject.CompareTag("Drawer"))
             {
+                SoundManager.instance.Play("LockUnlock");
+
                 lockedObject.GetComponent<DrawerBehaviour>().locked = false;
             }
 
             if (lockedObject.CompareTag("Door"))
             {
+                SoundManager.instance.Play("DoorOpen");
+
                 Destroy(lockedObject);
             }
 

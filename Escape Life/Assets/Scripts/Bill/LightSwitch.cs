@@ -5,15 +5,14 @@ using UnityEngine.TestTools;
 
 public class LightSwitch : MonoBehaviour
 {
-    public GameObject lightorobj;
-    //[SerializeField] public GameObject dent;
-    //public Vector3 newPos, oldPos;
+    public bool isOn = true;
+    public GameObject lightObj;
 
-    //private void Start()
-    //{
-    //    dent.transform.localPosition = oldPos;
-    //}
-
+    private void Start()
+    {
+        isOn = true;
+        lightObj.SetActive(isOn);
+    }
 
     void Update()
     {
@@ -21,21 +20,19 @@ public class LightSwitch : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            //Debug.Log("Click is working");
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("LightSwitch"))
             {
-                if (hit.transform.CompareTag("LightSwitch"))
-                {
-                    lightorobj.SetActive(!lightorobj.activeSelf);
-                    //if (lightorobj.activeSelf)
-                    //{
-                    //    dent.transform.localPosition = newPos;
-                    //}
-                    //else
-                    //{
-                    //    dent.transform.localPosition = oldPos;
-                    //}
-                }
+                SoundManager.instance.Play("SwitchOn");
+                toggleLights();
+                //Debug.Log("Switch check is working");
             }
         }
+    }
+
+    public void toggleLights()
+    {
+        isOn = !isOn;
+        lightObj.SetActive(isOn);
     }
 }

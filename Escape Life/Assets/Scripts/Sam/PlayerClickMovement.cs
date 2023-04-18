@@ -44,7 +44,6 @@ public class PlayerClickMovement : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Floor"))
                     {
-                        Debug.Log("Floor");
                         collided = false;
 
                         targetX = hit.point.x;
@@ -54,8 +53,13 @@ public class PlayerClickMovement : MonoBehaviour
             }
         }
 
+        if (gameObject.GetComponent<PlayerInteract>().inspectMode)
+        {
+            targetX = transform.position.x;
+            targetZ = transform.position.z;
+        }
+
         PlayerMove(targetX, targetZ);
-        //Debug.Log(collided);
     }
 
     private void OnCollisionEnter(Collision other)
