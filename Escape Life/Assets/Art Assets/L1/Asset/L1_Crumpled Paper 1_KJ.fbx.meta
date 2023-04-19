@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Poster 2
+    second: {fileID: 2100000, guid: 9a7a72441f81ed846a4ab6cfec4df324, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: VLRNTFriendlyFire_2560x2560

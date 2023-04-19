@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Alarm Clock
-    second: {fileID: 2800000, guid: 0bacfa9c7956ec543848f185cc4af9d2, type: 3}
+    second: {fileID: 2800000, guid: 0ff36238eeb8dd04b816309caec026df, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

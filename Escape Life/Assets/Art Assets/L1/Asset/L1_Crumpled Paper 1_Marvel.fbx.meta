@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Poster 1
+    second: {fileID: 2100000, guid: 050c78da724de014f933d5fcbcf283d6, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: marvel-comic-here-come-the-heroes-i34927

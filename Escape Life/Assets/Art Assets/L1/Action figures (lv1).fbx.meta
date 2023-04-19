@@ -18,12 +18,12 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Action figures texture
-    second: {fileID: 2800000, guid: 6632934e92601da4190e6cb37059b3ad, type: 3}
+    second: {fileID: 2800000, guid: cbad99c86d2bde64bb279eedce5bf330, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: bottom of toy
-    second: {fileID: 2800000, guid: a6734c30296ae784da587c43b6ee5c7f, type: 3}
+    second: {fileID: 2800000, guid: 7772707f322d25b47b52c78ed1324987, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

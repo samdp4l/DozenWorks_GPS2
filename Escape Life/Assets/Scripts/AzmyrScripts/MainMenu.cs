@@ -13,18 +13,18 @@ public class MainMenu : MonoBehaviour
     public void Room1()
     {
         SoundManager.instance.Stop("BGM");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void Room2()
     {
         SoundManager.instance.Stop("BGM");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     public void Room3()
     {
         SoundManager.instance.Stop("BGM");
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
 }
