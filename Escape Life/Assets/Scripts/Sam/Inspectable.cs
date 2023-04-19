@@ -55,7 +55,7 @@ public class Inspectable : MonoBehaviour
                 float rotationX = delta.y * rotationSpeed * Time.deltaTime;
                 float rotationY = -delta.x * rotationSpeed * Time.deltaTime;
 
-                transform.Rotate(new Vector3(rotationX, rotationY, 0));
+                transform.Rotate(new Vector3(-rotationX, rotationY, 0));
 
                 lastTouchPosition = touch.position;
             }

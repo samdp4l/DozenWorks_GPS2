@@ -105,7 +105,7 @@ public class PlayerInteract : MonoBehaviour
         oriScale = obj.transform.localScale;
 
         obj.transform.position = camTransform.position + camTransform.forward * inspectDistance;
-        obj.transform.rotation.SetLookRotation(camTransform.position);
+        obj.transform.LookAt(camTransform.position);
 
         hitObject = obj;
     }
@@ -141,7 +141,6 @@ public class PlayerInteract : MonoBehaviour
 
         hitObject.transform.position = oriPos;
         hitObject.transform.rotation = oriRot;
-        hitObject.transform.localScale = Vector3.one;
 
         if (hitObject.CompareTag("Inspect"))
         {
