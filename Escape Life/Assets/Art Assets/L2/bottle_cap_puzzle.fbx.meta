@@ -5,15 +5,25 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #27
+    second: {fileID: 2100000, guid: d43e8d6e8dd0872458647c2a3209b2a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #28
+    second: {fileID: 2100000, guid: ad08bf37f9f14094aade9ea81376f619, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: puzzlepieces
-    second: {fileID: 2800000, guid: bdd82fe92487e9f4f85acac4edde8a9b, type: 3}
+    second: {fileID: 2800000, guid: 0fe5907fb52a45c47b987090167764fe, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: wood
-    second: {fileID: 2800000, guid: 2e2495f09243a254e8d9767bbf9c5de7, type: 3}
+    second: {fileID: 2800000, guid: 7f3ce4e26ea8941429104bb1ad4b42db, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
