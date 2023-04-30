@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class KeyUnlockObjects : MonoBehaviour
 {
     [SerializeField]
     private GameObject key;
     [SerializeField]
     private GameObject lockedObject;
+
+    public Animator animator;
+    public float transTime = 1f;
+
+    public int sceneNum;
 
     public void CheckKey()
     {
@@ -18,16 +23,24 @@ public class KeyUnlockObjects : MonoBehaviour
                 SoundManager.instance.Play("LockUnlock");
 
                 lockedObject.GetComponent<DrawerBehaviour>().locked = false;
+
+                Destroy(gameObject);
             }
 
             if (lockedObject.CompareTag("Door"))
             {
                 SoundManager.instance.Play("DoorOpen");
-
-                Destroy(lockedObject);
+                animator.SetTrigger("Start");
+                StartCoroutine(LoadLevel(levelIndex: sceneNum));
             }
 
-            Destroy(gameObject);
         }
+    }
+
+    IEnumerator LoadLevel (int levelIndex)
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(transTime);
+        SceneManager.LoadScene(levelIndex);
     }
 }

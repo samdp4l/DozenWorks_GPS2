@@ -31,6 +31,9 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField]
     private GameObject inventoryBar;
 
+    [SerializeField]
+    private GameObject lightObject;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -89,6 +92,7 @@ public class PlayerInteract : MonoBehaviour
                     {
                         SoundManager.instance.Play("SwitchOn");
                         lightSource.SetActive(!lightSource.activeSelf);
+                        lightObject.SetActive(!lightObject.activeSelf);
                     }
 
                     if (hit.transform.CompareTag("Map"))
