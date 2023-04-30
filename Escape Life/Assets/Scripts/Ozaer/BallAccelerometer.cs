@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallAccelerometer : MonoBehaviour
 {
     //boolean to control accelerometer activation, requires deactivation after game and activation when opening the mini game. by default i put true
-    public bool isFlat = true;
+    public bool isFlat = false;
 
     private Rigidbody rigid;
     public float forceMultiplier = 1.0f;

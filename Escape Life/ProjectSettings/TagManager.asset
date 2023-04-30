@@ -15,6 +15,10 @@ TagManager:
   - Door
   - Map
   - LockedBook
+  - Puzzle
+  - PuzzleSquare
+  - Maze
+  - Ball
   layers:
   - Default
   - TransparentFX

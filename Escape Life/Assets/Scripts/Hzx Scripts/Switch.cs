@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
-public class Swith : MonoBehaviour
+using Unity.Burst.CompilerServices;
+
+public class Switch : MonoBehaviour
 {
     public Transform first;
     MeshRenderer mr;
@@ -56,11 +58,11 @@ public class Swith : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
-            if(first ==null)
+            if(first ==null && hit.transform.CompareTag("PuzzleSquare"))
             {
                 first = hit.transform;
             }
-            else if(first != hit.transform)
+            else if(first != hit.transform && hit.transform.CompareTag("PuzzleSquare"))
             {
                 Vector3 temp = first.position;
                 first.position = hit.transform.position;
@@ -70,17 +72,18 @@ public class Swith : MonoBehaviour
             // first.GetComponent<MeshRenderer>().material.color = Color.white;
             }
         }
+
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit1;
             Physics.Raycast(ray1, out hit1);
-            if(box == null)
+            if(box == null && hit1.transform.CompareTag("PuzzleSquare"))
             {
                 box = hit1.collider.gameObject;
               box.GetComponent<Animator>().enabled = true;
             }
-            if(hit1.collider.gameObject != box)
+            if(hit1.collider.gameObject != box && hit1.transform.CompareTag("PuzzleSquare"))
             {
                 box.GetComponent<Animator>().Play("Defult", 0, 0);
                 box.GetComponent<Animator>().Update(0);

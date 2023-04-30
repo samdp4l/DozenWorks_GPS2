@@ -96,6 +96,18 @@ public class PlayerInteract : MonoBehaviour
                         hit.transform.GetComponent<Rigidbody>().useGravity = true;
                         Invoke("StopGravity", 0.35f);
                     }
+
+                    if (hit.transform.CompareTag("Puzzle"))
+                    {
+                        hitObject = hit.transform.gameObject;
+                        InspectPuzzle();
+                    }
+
+                    if (hit.transform.CompareTag("Maze"))
+                    {
+                        hitObject = hit.transform.gameObject;
+                        InspectMaze();
+                    }
                 }
             }
         }
@@ -154,6 +166,34 @@ public class PlayerInteract : MonoBehaviour
         InspectObject();
     }
 
+    public void InspectPuzzle()
+    {
+        inspectMode = true;
+        inspectButton.SetActive(true);
+
+        oriPos = hitObject.transform.position;
+        oriRot = hitObject.transform.rotation;
+        oriScale = hitObject.transform.localScale;
+
+        hitObject.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        hitObject.transform.LookAt(camTransform.position);
+    }
+
+    public void InspectMaze()
+    {
+        inspectMode = true;
+        inspectButton.SetActive(true);
+
+        hitObject.transform.GetComponent<BoardTilt>().flat = true;
+
+        oriPos = hitObject.transform.position;
+        oriRot = hitObject.transform.rotation;
+        oriScale = hitObject.transform.localScale;
+
+        hitObject.transform.position = camTransform.position + camTransform.forward * inspectDistance;
+        hitObject.transform.LookAt(camTransform.position);
+    }
+
     public void CancelInspect()
     {
         inspectMode = false;
@@ -181,6 +221,11 @@ public class PlayerInteract : MonoBehaviour
             }
 
             lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
+        }
+
+        if (hitObject.CompareTag("Maze"))
+        {
+            hitObject.GetComponent<BoardTilt>().flat = false;
         }
 
         if (hitObject.CompareTag("PickUp"))
