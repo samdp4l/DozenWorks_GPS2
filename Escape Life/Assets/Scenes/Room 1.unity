@@ -12522,6 +12522,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 7120643502973992140, guid: 601879acfc2ba514586c870aa7fb4e8a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d15dcef94d44f7149adc9a09cddde26a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 601879acfc2ba514586c870aa7fb4e8a, type: 3}
 --- !u!1001 &1791979736
@@ -12675,7 +12680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822542449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18943417, y: 2.0171342, z: 1.7374135}
+  m_LocalPosition: {x: -0.18943417, y: 1.996, z: 1.7374135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13295,8 +13300,8 @@ Transform:
   m_GameObject: {fileID: 1851018042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.18943417, y: 2.0171342, z: 1.7374135}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9999, y: 0.9999, z: 0.9999}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1906953089}
   m_RootOrder: 7
