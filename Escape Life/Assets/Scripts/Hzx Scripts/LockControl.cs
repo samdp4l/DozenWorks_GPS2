@@ -14,6 +14,7 @@ public class LockControl : MonoBehaviour
 
     public Button confirmButton;
     public int inputCount;
+    public Vector3 positionOffset;
     public float rotationOffset;
     public bool threeWheels;
 
@@ -74,6 +75,15 @@ public class LockControl : MonoBehaviour
 
                     Destroy(lockedObject.GetComponentInParent<Collider>());
                     Destroy(gameObject);
+                }
+                if (lockedObject.CompareTag("LockedBook"))
+                {
+                    player.GetComponent<PlayerInteract>().CancelInspect();
+
+                    Destroy(gameObject.GetComponent<LockControl>());
+                    gameObject.tag = "Inspect";
+
+                    lockedObject.GetComponent<BookLock>().UnlockBook();
                 }
             }
             else

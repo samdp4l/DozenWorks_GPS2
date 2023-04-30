@@ -13,6 +13,8 @@ TagManager:
   - KeyLock
   - LockBox
   - Door
+  - Map
+  - LockedBook
   layers:
   - Default
   - TransparentFX

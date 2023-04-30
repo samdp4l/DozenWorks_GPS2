@@ -90,6 +90,12 @@ public class PlayerInteract : MonoBehaviour
                         SoundManager.instance.Play("SwitchOn");
                         lightSource.SetActive(!lightSource.activeSelf);
                     }
+
+                    if (hit.transform.CompareTag("Map"))
+                    {
+                        hit.transform.GetComponent<Rigidbody>().useGravity = true;
+                        Invoke("StopGravity", 0.35f);
+                    }
                 }
             }
         }
@@ -138,7 +144,7 @@ public class PlayerInteract : MonoBehaviour
         oriPos = hitObject.transform.position;
         oriRot = hitObject.transform.rotation;
 
-        hitObject.transform.position = camTransform.position + camTransform.forward * 0.1f;
+        hitObject.transform.position = camTransform.position + camTransform.forward * 0.1f + hitObject.GetComponent<LockControl>().positionOffset;
         hitObject.transform.rotation = camTransform.rotation * Quaternion.Euler(0f, hitObject.GetComponent<LockControl>().rotationOffset, 0f);
     }
 
@@ -191,5 +197,12 @@ public class PlayerInteract : MonoBehaviour
         {
             pickupObject.ObjectPickedUp();
         }
+    }
+
+    private void StopGravity()
+    {
+        hit.transform.GetComponent<Rigidbody>().useGravity = false;
+        hit.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Destroy(hit.transform.GetComponent<BoxCollider>());
     }
 }
