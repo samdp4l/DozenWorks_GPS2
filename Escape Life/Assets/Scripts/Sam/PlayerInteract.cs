@@ -34,6 +34,9 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField]
     private GameObject lightObject;
 
+    [SerializeField]
+    private GameObject inventoryBar2;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -125,6 +128,7 @@ public class PlayerInteract : MonoBehaviour
         inspectButton.SetActive(true);
         resetButton.SetActive(true);
         inventoryBar.SetActive(false);
+        inventoryBar2.SetActive(false);
 
         oriPos = hitObject.transform.position;
         oriRot = hitObject.transform.rotation;
@@ -146,6 +150,7 @@ public class PlayerInteract : MonoBehaviour
         inspectMode = true;
         inspectButton.SetActive(true);
         inventoryBar.SetActive(false);
+        inventoryBar2.SetActive(false);
 
         lockCanvas.GetComponent<LockCanvasBehaviour>().threeButtons = hitObject.GetComponent<LockControl>().threeWheels;
         lockCanvas.GetComponent<LockCanvasBehaviour>().toggleCanvas();
@@ -204,6 +209,7 @@ public class PlayerInteract : MonoBehaviour
         inspectButton.SetActive(false);
         resetButton.SetActive(false);
         inventoryBar.SetActive(true);
+        inventoryBar2.SetActive(false);
 
         hitObject.transform.position = oriPos;
         hitObject.transform.rotation = oriRot;
