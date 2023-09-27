@@ -14,15 +14,6 @@ public class SSSwitchScene : MonoBehaviour
         StartCoroutine(WaitforVideoEnd());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.anyKey)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-    }
-
      IEnumerator WaitforVideoEnd()
     {
         yield return new WaitForSeconds(waitEnd);
